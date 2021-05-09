@@ -764,8 +764,7 @@ public class FileFrame {
 					hs.setNgaySinh((Date) ns);
 					if(rdbtn_female.isSelected()) {
 						hs.setGioiTinh(true);
-					}
-					else {
+					} else {
 						hs.setGioiTinh(false);
 					}
 					DIA_CHI dc = new DIA_CHI();
