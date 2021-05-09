@@ -37,6 +37,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTable;
 import javax.swing.Icon;
 import javax.swing.JLayeredPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class MainFrame {
@@ -239,6 +241,11 @@ public class MainFrame {
 		
 		ImageIcon TaoHoSoIcon = new ImageIcon("C:\\Users\\minht\\Java\\PBL3_DA\\src\\PBL3_DA\\IMAGE\\red_file_50px.png");
 		JButton btnTaohs = new JButton("T\u1EA1o h\u1ED3 s\u01A1", TaoHoSoIcon);
+		btnTaohs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				new FileFrame(0);
+			}
+		});
 		btnTaohs.setBackground(new Color(51, 102, 204));
 		btnTaohs.setBorder(null);
 		btnTaohs.setForeground(Color.WHITE);

@@ -1,11 +1,14 @@
 package PBL3_DA.GUI;
 
 import java.awt.EventQueue;
-
+import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Button;
+import java.awt.CheckboxGroup;
 import java.awt.Color;
 import javax.swing.JLayeredPane;
 import javax.swing.JScrollPane;
@@ -16,11 +19,15 @@ import javax.swing.JTextField;
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.awt.event.ActionEvent;
 import java.awt.Rectangle;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
-
+import PBL3_DA.BLL.*;
+import PBL3_DA.DTO.CBBitem;
+import PBL3_DA.DTO.DIA_CHI;
+import PBL3_DA.DTO.HO_SO;
 public class FileFrame {
 
 	private JFrame frameHS;
@@ -33,6 +40,7 @@ public class FileFrame {
 	private JTextField txtTrinhdo;
 	private JTextField txtDonvidaotao;
 	private JTextField txtChuyennganh;
+	private int idhs;
 
 	/**
 	 * Launch the application.
@@ -53,14 +61,26 @@ public class FileFrame {
 	/**
 	 * Create the application.
 	 */
+//	public FileFrame(int id) {
+//		idhs = id;
+//		initialize();
+//	}
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public FileFrame() {
 		initialize();
 	}
-
+	public void setFrame() {
+		// TODO: tham số ID của sinh viên cần lấy
+		// TODO: Lấy dữ liệu ban đầu của hoSoSinhVien theo IDHoSo
+	}
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		
 		frameHS = new JFrame();
 		frameHS.setTitle("H\u1ED2 S\u01A0");
 		frameHS.setResizable(false);
@@ -129,6 +149,8 @@ public class FileFrame {
 		txtHoten.setBounds(145, 83, 250, 20);
 		panel_1.add(txtHoten);
 		
+		
+		
 		txtSdt = new JTextField();
 		txtSdt.setColumns(10);
 		txtSdt.setBorder(null);
@@ -139,10 +161,6 @@ public class FileFrame {
 		datechooserNS.setBounds(145, 180, 250, 20);
 		panel_1.add(datechooserNS);
 		
-		JComboBox cbbGioitinh = new JComboBox();
-		cbbGioitinh.setBounds(145, 232, 250, 22);
-		panel_1.add(cbbGioitinh);
-		
 		JComboBox cbbThanhpho = new JComboBox();
 		cbbThanhpho.setBounds(145, 282, 250, 22);
 		panel_1.add(cbbThanhpho);
@@ -152,6 +170,17 @@ public class FileFrame {
 		txtDiachi.setBorder(null);
 		txtDiachi.setBounds(145, 333, 250, 20);
 		panel_1.add(txtDiachi);
+		
+		ButtonGroup bg = new ButtonGroup();
+		JRadioButton rdbtn_male = new JRadioButton("Male");
+		rdbtn_male.setBounds(145, 232, 109, 23);
+		panel_1.add(rdbtn_male);
+		
+		JRadioButton rdbtn_female = new JRadioButton("Female");
+		rdbtn_female.setBounds(286, 232, 109, 23);
+		panel_1.add(rdbtn_female);
+		bg.add(rdbtn_female);
+		bg.add(rdbtn_male);
 		
 		JButton btnLuu_panel1 = new JButton("L\u01B0u");
 		btnLuu_panel1.setFont(new Font("Tahoma", Font.BOLD, 12));
@@ -527,6 +556,26 @@ public class FileFrame {
 		panel_6.add(lb1_panel6);
 		
 		JButton btnLuu_panel6 = new JButton("L\u01B0u");
+		btnLuu_panel6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(idhs == 0) {
+					java.util.Date ns = datechooserNS.getDate();
+					HO_SO hs = new HO_SO();
+					hs.setFullname(txtHoten.getText());
+					hs.setNgaySinh((Date) ns);
+					if(rdbtn_female.isSelected()) {
+						hs.setGioiTinh(true);
+					}
+					else {
+						hs.setGioiTinh(false);
+					}
+					DIA_CHI dc = new DIA_CHI();
+					dc.setTinh(cbbThanhpho.getSelectedItem().toString());
+					dc.setDiaChiChiTiet(txtDiachi.getText());
+					hs.setId_DC(dc.getId());
+				}
+			}
+		});
 		btnLuu_panel6.setFont(new Font("Tahoma", Font.BOLD, 12));
 		btnLuu_panel6.setBorder(null);
 		btnLuu_panel6.setBackground(new Color(220, 20, 60));
@@ -685,6 +734,8 @@ public class FileFrame {
 		btnNgoainguTinhoc.setBounds(0, 304, 180, 76);
 		panel.add(btnNgoainguTinhoc);
 		
+		
+		
 		JButton btnKynangcanhan = new JButton("K\u1EF9 n\u0103ng c\u00E1 nh\u00E2n");
 		btnKynangcanhan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -702,5 +753,42 @@ public class FileFrame {
 		btnKynangcanhan.setBackground(new Color(30, 144, 255));
 		btnKynangcanhan.setBounds(0, 380, 180, 76);
 		panel.add(btnKynangcanhan);
+
+		btnLuu_panel1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(idhs == 0) {
+					java.util.Date ns = datechooserNS.getDate();
+					HO_SO hs = new HO_SO();
+					//panel1
+					hs.setFullname(txtHoten.getText());
+					hs.setNgaySinh((Date) ns);
+					if(rdbtn_female.isSelected()) {
+						hs.setGioiTinh(true);
+					}
+					else {
+						hs.setGioiTinh(false);
+					}
+					DIA_CHI dc = new DIA_CHI();
+					dc.setTinh(cbbThanhpho.getSelectedItem().toString());
+					dc.setDiaChiChiTiet(txtDiachi.getText());
+					hs.setId_DC(dc.getId());
+					//panel2
+					hs.setKinhNghiem(cbbKinhnghiem.getSelectedItem().toString());
+					hs.setViTriHienTai(cbbVitrihientai.getSelectedItem().toString());
+					hs.setViTriMongMuon(cbbVitrimongmuon.getSelectedItem().toString());
+					hs.setMucLuong(Integer.parseInt(txtMucluong.getText()));
+					hs.setNoiLamViec(cbbNoilamviec.getSelectedItem().toString());
+					hs.setMucTieuCV(txareaMuctieu.getText());
+					//panel3
+					hs.setTenCongTyDangLam(txtDoanhnghiep.getText());
+					hs.setNoiLamViec(cbbNoilamviec.getSelectedItem().toString());
+//					hs.setThoiGianBatDauLam(cbbTu_panel3.getItemAt(cbbTu_panel3.getSelectedIndex()));
+//					hs.setThoiGianBatDauLam(cbbTu_panel3.getItemAt(cbbTu_panel3.getSelectedIndex()));
+					if(txtMucluong.getText() == "") {
+//						hs.setMucLuong(cbb);
+					}
+				}
+			}
+		});
 	}
 }
