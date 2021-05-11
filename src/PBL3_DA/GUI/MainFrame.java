@@ -243,7 +243,7 @@ public class MainFrame {
 		JButton btnTaohs = new JButton("T\u1EA1o h\u1ED3 s\u01A1", TaoHoSoIcon);
 		btnTaohs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				new FileFrame(0);
+				new FileFrame(0);
 			}
 		});
 		btnTaohs.setBackground(new Color(51, 102, 204));
@@ -277,6 +277,11 @@ public class MainFrame {
 		
 		ImageIcon TuhosoIcon = new ImageIcon("C:\\Users\\minht\\Java\\PBL3_DA\\src\\PBL3_DA\\IMAGE\\document_28px.png");
 		JButton btnTuhs = new JButton("T\u1EE7 h\u1ED3 s\u01A1", TuhosoIcon);
+		btnTuhs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new FileFrame(LoginFrame.getIDUS());
+			}
+		});
 		btnTuhs.setBounds(0, 0, 121, 45);
 		btnTuhs.setFont(new Font("Calibri", Font.BOLD, 15));
 		btnTuhs.setBorder(null);

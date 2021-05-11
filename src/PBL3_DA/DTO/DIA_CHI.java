@@ -31,6 +31,12 @@ public class DIA_CHI {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+	public DIA_CHI(int id, String tinh, String diaChiChiTiet) {
+		super();
+		this.id = id;
+		this.tinh = tinh;
+		this.diaChiChiTiet = diaChiChiTiet;
+	}
+
 	
 }

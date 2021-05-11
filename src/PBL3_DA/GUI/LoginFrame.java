@@ -23,6 +23,16 @@ public class LoginFrame {
 	private JFrame LoginFrame;
 	private JTextField txtDangnhap;
 	private JTextField txtMatkhau;
+	private static int IDUS;
+	
+
+	public static int getIDUS() {
+		return IDUS;
+	}
+
+	public static void setIDUS(int iDUS) {
+		IDUS = iDUS;
+	}
 
 	/**
 	 * Launch the application.
