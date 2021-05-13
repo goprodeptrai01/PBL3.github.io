@@ -6,6 +6,7 @@ import PBL3_DA.DAL.TKVL_DAL;
 import PBL3_DA.DTO.BANG_CAP;
 import PBL3_DA.DTO.DIA_CHI;
 import PBL3_DA.DTO.HO_SO;
+import PBL3_DA.DTO.HO_SO_VIEW;
 import PBL3_DA.DTO.KI_NANG;
 import PBL3_DA.DTO.NN_TH;
 import PBL3_DA.DTO.TAI_KHOAN;
@@ -22,7 +23,11 @@ public class BLL_Timviec {
 	private BLL_Timviec() {
 
 	}
-
+	
+	public ArrayList<HO_SO_VIEW> GetAllListHStoView_BLL(){
+		return TKVL_DAL.Instance().GetAllListHStoView_DAL();
+	}
+	
 	public List<HO_SO> GetAllListHS_BLL() {
 		return TKVL_DAL.Instance().GetAllListHS_DAL();
 	}
@@ -103,6 +108,11 @@ public class BLL_Timviec {
 			}
 		}
 		return data;
+	}
+
+	public ArrayList<HO_SO_VIEW> GetConditionListHStoView_BLL(String hoTen, Boolean gender, String tinhThanh, String mucLuong, String trinhDo, String ngoaiNgu, String bangCap) {
+		// TODO Auto-generated method stub
+		return TKVL_DAL.Instance().GetConditionListHStoView_DAL(hoTen,gender,tinhThanh,mucLuong,trinhDo,ngoaiNgu,bangCap);
 	}
 	
 }

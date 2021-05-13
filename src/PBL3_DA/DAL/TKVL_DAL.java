@@ -9,6 +9,7 @@ import java.util.*;
 import PBL3_DA.DTO.BANG_CAP;
 import PBL3_DA.DTO.DIA_CHI;
 import PBL3_DA.DTO.HO_SO;
+import PBL3_DA.DTO.HO_SO_VIEW;
 import PBL3_DA.DTO.KI_NANG;
 import PBL3_DA.DTO.NN_TH;
 import PBL3_DA.DTO.TAI_KHOAN;
@@ -27,6 +28,26 @@ public class TKVL_DAL {
 
 	}
 
+	public ArrayList<HO_SO_VIEW> GetAllListHStoView_DAL() {
+		ArrayList<HO_SO_VIEW> hsvList = new ArrayList<>();
+		try {
+			String query = "select HS.Id,HS.Fullname,TK.Sdt,HS.NgaySinh,HS.GioiTinh,DC.Tinh from HO_SO as HS LEFT JOIN TAI_KHOAN TK ON HS.Id = TK.Id LEFT JOIN DIA_CHI DC ON HS.IdDC = DC.Id";
+
+			ResultSet resultSet = DBHelper.Instance().getResultSet(query);
+
+			while (resultSet.next()) {
+				HO_SO_VIEW hsv = new HO_SO_VIEW(resultSet.getInt("Id"), resultSet.getInt("Sdt"),
+						resultSet.getString("Fullname"), resultSet.getString("Tinh"), resultSet.getDate("NgaySinh"),
+						resultSet.getBoolean("GioiTinh"));
+				hsvList.add(hsv);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error " + e);
+		}
+		return hsvList;
+	}
+
 	public List<HO_SO> GetAllListHS_DAL() {
 		List<HO_SO> hsList = new ArrayList<>();
 		try {
@@ -35,15 +56,15 @@ public class TKVL_DAL {
 			ResultSet resultSet = DBHelper.Instance().getResultSet(query);
 
 			while (resultSet.next()) {
-				HO_SO hs = new HO_SO(resultSet.getInt("id"), resultSet.getString("Fullname"),
+				HO_SO hs = new HO_SO(resultSet.getInt("Id"), resultSet.getString("Fullname"),
 						resultSet.getDate("NgaySinh"), resultSet.getBoolean("GioiTinh"),
 						resultSet.getString("KinhNghiem"), resultSet.getString("ViTriHienTai"),
 						resultSet.getString("ViTriMongMuon"), resultSet.getInt("MucLuongMongMuon"),
 						resultSet.getString("NoiLamViec"), resultSet.getString("MucTieuCV"),
 						resultSet.getString("TenCongTyDangLam"), resultSet.getDate("ThoiGianBatDauLam"),
 						resultSet.getDate("ThoiGianKetThucLam"), resultSet.getInt("MucLuong"),
-						resultSet.getString("MoTaCV"), resultSet.getInt("id_DC"), resultSet.getInt("id_BC"),
-						resultSet.getInt("idNN_TH"), resultSet.getInt("id_KN"));
+						resultSet.getString("MoTaCV"), resultSet.getInt("IdDC"), resultSet.getInt("IdBC"),
+						resultSet.getInt("IdNN_TH"), resultSet.getInt("IdKN"));
 				hsList.add(hs);
 			}
 		} catch (Exception e) {
@@ -447,5 +468,56 @@ public class TKVL_DAL {
 			// TODO: handle exception
 			System.out.println("Error " + e);
 		}
+	}
+
+	public ArrayList<HO_SO_VIEW> GetConditionListHStoView_DAL(String hoTen, Boolean gender, String tinhThanh,
+			String mucLuong, String trinhDo, String ngoaiNgu, String bangCap) {
+		// TODO Auto-generated method stub
+		ArrayList<HO_SO_VIEW> hsvList = new ArrayList<>();
+		try {
+			String query = null;
+			if (hoTen != null) {
+				query = "select HS.Id,HS.Fullname,TK.Sdt,HS.NgaySinh,HS.GioiTinh,DC.Tinh from HO_SO as HS LEFT JOIN TAI_KHOAN TK ON HS.Id = TK.Id LEFT JOIN DIA_CHI DC ON HS.IdDC = DC.Id WHERE HS.Fullname ="
+						+ "'" + hoTen + "'";
+			}
+			if (gender != null) {
+				query = "select HS.Id,HS.Fullname,TK.Sdt,HS.NgaySinh,HS.GioiTinh,DC.Tinh from HO_SO as HS LEFT JOIN TAI_KHOAN TK ON HS.Id = TK.Id LEFT JOIN DIA_CHI DC ON HS.IdDC = DC.Id WHERE HS.GioiTinh ="
+						+ "'" + gender + "'";
+			}
+			if (tinhThanh != null) {
+				query = "select HS.Id,HS.Fullname,TK.Sdt,HS.NgaySinh,HS.GioiTinh,DC.Tinh from HO_SO as HS LEFT JOIN TAI_KHOAN TK ON HS.Id = TK.Id LEFT JOIN DIA_CHI DC ON HS.IdDC = DC.Id WHERE DC.Tinh ="
+						+ "'" + tinhThanh + "'";
+			}
+			if (mucLuong != null) {
+				int moneyFirst = Integer.parseInt(mucLuong);
+				int moneyLate = moneyFirst + 1000000;
+				query = "select HS.Id,HS.Fullname,TK.Sdt,HS.NgaySinh,HS.GioiTinh,DC.Tinh from HO_SO as HS LEFT JOIN TAI_KHOAN TK ON HS.Id = TK.Id LEFT JOIN DIA_CHI DC ON HS.IdDC = DC.Id WHERE HS.MucLuongMongMuon BETWEEN"
+						+ moneyFirst + "AND" + moneyLate;
+			}
+			if (trinhDo != null) {
+				query = "select HS.Id,HS.Fullname,TK.Sdt,HS.NgaySinh,HS.GioiTinh,DC.Tinh from HO_SO as HS LEFT JOIN TAI_KHOAN TK ON HS.Id = TK.Id LEFT JOIN DIA_CHI DC ON HS.IdDC = DC.Id LEFT JOIN NN_TH NT ON HS.IdNN_TH = NT.Id WHERE NT.TrinhDo ="
+						+ "'" + trinhDo + "'";
+			}
+			if (ngoaiNgu != null) {
+				query = "select HS.Id,HS.Fullname,TK.Sdt,HS.NgaySinh,HS.GioiTinh,DC.Tinh from HO_SO as HS LEFT JOIN TAI_KHOAN TK ON HS.Id = TK.Id LEFT JOIN DIA_CHI DC ON HS.IdDC = DC.Id LEFT JOIN NN_TH NT ON HS.IdNN_TH = NT.Id WHERE NT.LoaiNgonNgu"
+						+ "'" + ngoaiNgu + "'";
+			}
+			if (bangCap != null) {
+				query = "select HS.Id,HS.Fullname,TK.Sdt,HS.NgaySinh,HS.GioiTinh,DC.Tinh from HO_SO as HS LEFT JOIN TAI_KHOAN TK ON HS.Id = TK.Id LEFT JOIN DIA_CHI DC ON HS.IdDC = DC.Id LEFT JOIN NN_TH NT ON HS.IdNN_TH = NT.Id WHERE NT.BangCap"
+						+ "'" + bangCap + "'";
+			}
+			ResultSet resultSet = DBHelper.Instance().getResultSet(query);
+
+			while (resultSet.next()) {
+				HO_SO_VIEW hsv = new HO_SO_VIEW(resultSet.getInt("Id"), resultSet.getInt("Sdt"),
+						resultSet.getString("Fullname"), resultSet.getString("Tinh"), resultSet.getDate("NgaySinh"),
+						resultSet.getBoolean("GioiTinh"));
+				hsvList.add(hsv);
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error " + e);
+		}
+		return hsvList;
 	}
 }
