@@ -67,7 +67,7 @@ public class ListFileFrame extends JFrame {
 	 */
 	public ListFileFrame() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1080, 863);
+		setBounds(100, 100, 1080, 758);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -318,110 +318,25 @@ public class ListFileFrame extends JFrame {
 		btnLoc.setBackground(Color.RED);
 		btnLoc.setBounds(103, 383, 167, 40);
 		panel_3_1.add(btnLoc);
-
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBackground(new Color(135, 206, 250));
-
-		JButton btnTuhs = new JButton("T\u1EE7 h\u1ED3 s\u01A1", null);
-		btnTuhs.setFont(new Font("Calibri", Font.BOLD, 15));
-		btnTuhs.setBorder(null);
-		btnTuhs.setBackground(new Color(135, 206, 250));
-		btnTuhs.setBounds(0, 0, 121, 45);
-		panel_2.add(btnTuhs);
-
-		JButton btnVLDaluu = new JButton("Vi\u1EC7c l\u00E0m \u0111\u00E3 l\u01B0u", null);
-		btnVLDaluu.setFont(new Font("Calibri", Font.BOLD, 15));
-		btnVLDaluu.setBorder(null);
-		btnVLDaluu.setBackground(new Color(135, 206, 250));
-		btnVLDaluu.setBounds(396, 0, 170, 45);
-		panel_2.add(btnVLDaluu);
-
-		JButton btnVLUngtuyen = new JButton("Vi\u1EC7c l\u00E0m \u0111\u00E3 \u1EE9ng tuy\u1EC3n", null);
-		btnVLUngtuyen.setFont(new Font("Calibri", Font.BOLD, 15));
-		btnVLUngtuyen.setBorder(null);
-		btnVLUngtuyen.setBackground(new Color(135, 206, 250));
-		btnVLUngtuyen.setBounds(576, 0, 190, 45);
-		panel_2.add(btnVLUngtuyen);
-
-		JButton btnTaikhoan = new JButton("T\u00E0i kho\u1EA3n", null);
-		btnTaikhoan.setFont(new Font("Calibri", Font.BOLD, 15));
-		btnTaikhoan.setBorder(null);
-		btnTaikhoan.setBackground(new Color(135, 206, 250));
-		btnTaikhoan.setBounds(265, 0, 121, 45);
-		panel_2.add(btnTaikhoan);
-
-		JButton btnTimkiemhs = new JButton("T\u00ECm h\u1ED3 s\u01A1", null);
-		btnTimkiemhs.setFont(new Font("Calibri", Font.BOLD, 15));
-		btnTimkiemhs.setBorder(null);
-		btnTimkiemhs.setBackground(new Color(135, 206, 250));
-		btnTimkiemhs.setBounds(131, 0, 121, 45);
-		panel_2.add(btnTimkiemhs);
-
-		JButton btnTaohs = new JButton("T\u1EA1o h\u1ED3 s\u01A1", null);
-		btnTaohs.setForeground(Color.WHITE);
-		btnTaohs.setFont(new Font("Calibri", Font.BOLD, 21));
-		btnTaohs.setBorder(null);
-		btnTaohs.setBackground(new Color(51, 102, 204));
-
-		JButton btnDangTin = new JButton("\u0110\u0103ng tin \r\ntuy\u1EC3n d\u1EE5ng", null);
-		btnDangTin.setForeground(Color.WHITE);
-		btnDangTin.setFont(new Font("Calibri", Font.BOLD, 21));
-		btnDangTin.setBorder(null);
-		btnDangTin.setBackground(new Color(51, 102, 204));
-
-		JButton btnTaikhoancn = new JButton("T\u00E0i kho\u1EA3n", null);
-		btnTaikhoancn.setForeground(Color.WHITE);
-		btnTaikhoancn.setFont(new Font("Calibri", Font.BOLD, 18));
-		btnTaikhoancn.setBorder(null);
-		btnTaikhoancn.setBackground(new Color(51, 102, 204));
-
-		JButton btnDangXuat = new JButton("\u0110\u0103ng xu\u1EA5t", null);
-		btnDangXuat.setForeground(Color.WHITE);
-		btnDangXuat.setFont(new Font("Calibri", Font.BOLD, 18));
-		btnDangXuat.setBorder(null);
-		btnDangXuat.setBackground(new Color(51, 102, 204));
 		GroupLayout gl_panel_5 = new GroupLayout(panel_5);
-		gl_panel_5.setHorizontalGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_5.createSequentialGroup().addGap(37).addGroup(gl_panel_5
-						.createParallelGroup(Alignment.TRAILING)
-						.addGroup(
-								gl_panel_5.createSequentialGroup()
-										.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
-										.addGap(33)
-										.addComponent(panel_3_1, GroupLayout.PREFERRED_SIZE, 359,
-												GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(ComponentPlacement.RELATED))
-						.addGroup(gl_panel_5.createSequentialGroup().addGroup(gl_panel_5
-								.createParallelGroup(Alignment.TRAILING)
-								.addComponent(panel_2, Alignment.LEADING, GroupLayout.PREFERRED_SIZE, 849,
-										GroupLayout.PREFERRED_SIZE)
-								.addGroup(gl_panel_5.createSequentialGroup()
-										.addComponent(btnTaohs, GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-										.addGap(10)
-										.addComponent(btnDangTin, GroupLayout.DEFAULT_SIZE, 273, Short.MAX_VALUE)
-										.addGap(19)
-										.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
-												.addGroup(gl_panel_5.createSequentialGroup().addGap(152).addComponent(
-														btnTaikhoancn, GroupLayout.PREFERRED_SIZE, 156,
-														GroupLayout.PREFERRED_SIZE))
-												.addComponent(btnDangXuat, GroupLayout.PREFERRED_SIZE, 156,
-														GroupLayout.PREFERRED_SIZE))))
-								.addGap(133)))
-						.addGap(26)));
-		gl_panel_5.setVerticalGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel_5.createSequentialGroup().addGap(11)
-						.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
-								.addComponent(btnTaohs, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnDangTin, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnTaikhoancn, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
-								.addComponent(btnDangXuat, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE))
-						.addGap(11).addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 45, GroupLayout.PREFERRED_SIZE)
-						.addGap(56)
-						.addGroup(gl_panel_5.createParallelGroup(Alignment.LEADING)
-								.addComponent(panel_3_1, GroupLayout.PREFERRED_SIZE, 434, GroupLayout.PREFERRED_SIZE)
-								.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE))
-						.addContainerGap()));
+		gl_panel_5.setHorizontalGroup(
+			gl_panel_5.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_panel_5.createSequentialGroup()
+					.addGap(52)
+					.addComponent(scrollPane_1, GroupLayout.DEFAULT_SIZE, 607, Short.MAX_VALUE)
+					.addGap(18)
+					.addComponent(panel_3_1, GroupLayout.PREFERRED_SIZE, 359, GroupLayout.PREFERRED_SIZE)
+					.addGap(26))
+		);
+		gl_panel_5.setVerticalGroup(
+			gl_panel_5.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_panel_5.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_panel_5.createParallelGroup(Alignment.TRAILING)
+						.addComponent(panel_3_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
+						.addComponent(scrollPane_1, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE))
+					.addGap(63))
+		);
 
 		tbDshs = new JTable();
 		tbDshs.addMouseListener(new MouseAdapter() {

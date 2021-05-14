@@ -265,8 +265,12 @@ public class FileFrame {
 		lb6_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lb6_panel2.setBounds(10, 330, 140, 25);
 		panel_2.add(lb6_panel2);
-
-		JComboBox cbbKinhnghiem = new JComboBox();
+		
+		String exp[] = {
+				"1 thang","3 thang","6 thang",
+				"1 nam","2 nam","4 nam","8 nam"
+		};
+		JComboBox cbbKinhnghiem = new JComboBox(exp);
 		cbbKinhnghiem.setBounds(160, 82, 250, 22);
 		panel_2.add(cbbKinhnghiem);
 
@@ -351,16 +355,19 @@ public class FileFrame {
 		JLabel lb6_panel3 = new JLabel("T\u1EEB");
 		lb6_panel3.setBounds(145, 186, 22, 14);
 		panel_3.add(lb6_panel3);
-
-		JComboBox cbbTu_panel3 = new JComboBox();
+		
+		String time[] = {
+				"2021-05-09"
+		};
+		JComboBox cbbTu_panel3 = new JComboBox(time);
 		cbbTu_panel3.setBounds(166, 182, 68, 22);
 		panel_3.add(cbbTu_panel3);
-
+		
 		JLabel lb7_panel3 = new JLabel("\u0110\u1EBFn");
 		lb7_panel3.setBounds(271, 186, 25, 14);
 		panel_3.add(lb7_panel3);
 
-		JComboBox cbbDen_panel3 = new JComboBox();
+		JComboBox cbbDen_panel3 = new JComboBox(time);
 		cbbDen_panel3.setBounds(300, 182, 68, 22);
 		panel_3.add(cbbDen_panel3);
 
@@ -470,7 +477,7 @@ public class FileFrame {
 		lb6_panel4.setBounds(145, 186, 22, 14);
 		panel_4.add(lb6_panel4);
 
-		JComboBox cbbTu_panel4 = new JComboBox();
+		JComboBox cbbTu_panel4 = new JComboBox(time);
 		cbbTu_panel4.setBounds(166, 182, 68, 22);
 		panel_4.add(cbbTu_panel4);
 
@@ -478,7 +485,7 @@ public class FileFrame {
 		lb7_panel4.setBounds(271, 186, 25, 14);
 		panel_4.add(lb7_panel4);
 
-		JComboBox cbbDen_panel4 = new JComboBox();
+		JComboBox cbbDen_panel4 = new JComboBox(time);
 		cbbDen_panel4.setBounds(300, 182, 68, 22);
 		panel_4.add(cbbDen_panel4);
 
@@ -487,8 +494,14 @@ public class FileFrame {
 		txtChuyennganh.setBorder(null);
 		txtChuyennganh.setBounds(145, 233, 250, 20);
 		panel_4.add(txtChuyennganh);
-
-		JComboBox cbbLoaitotnghiep = new JComboBox();
+		
+		String Trinhdo[] = {
+				"Gioi",
+				"Kha",
+				"Trung Binh",
+				"Yeu"
+		};
+		JComboBox cbbLoaitotnghiep = new JComboBox(Trinhdo);
 		cbbLoaitotnghiep.setBounds(145, 282, 250, 22);
 		panel_4.add(cbbLoaitotnghiep);
 
@@ -526,8 +539,24 @@ public class FileFrame {
 		lb4_panel5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lb4_panel5.setBounds(10, 180, 100, 25);
 		panel_5.add(lb4_panel5);
-
-		JComboBox cbbBangcap = new JComboBox();
+		
+		String Bangcap[] = {
+				"Toeic 650",
+				"Toeic 525",
+				"Ielts 6.0",
+				"Ielts 7.0",
+				"N0",
+				"N1",
+				"N2",
+				"N3",
+				"N4",
+				"N5",
+				"Delf a1",
+				"Delf a2",
+				"Delf b1",
+				"Delf b2"
+		};
+		JComboBox cbbBangcap = new JComboBox(Bangcap);
 		cbbBangcap.setBounds(145, 182, 250, 22);
 		panel_5.add(cbbBangcap);
 
@@ -574,11 +603,17 @@ public class FileFrame {
 		chckbxMsOutlook.setBounds(160, 312, 120, 23);
 		panel_5.add(chckbxMsOutlook);
 
-		JComboBox cbbNgoaingu = new JComboBox();
+		String Ngoaingu[] = {
+				"Anh",
+				"Nhat",
+				"Phap",
+				"Y"
+		};
+		JComboBox cbbNgoaingu = new JComboBox(Ngoaingu);
 		cbbNgoaingu.setBounds(145, 82, 250, 22);
 		panel_5.add(cbbNgoaingu);
 
-		JComboBox cbbTrinhdo = new JComboBox();
+		JComboBox cbbTrinhdo = new JComboBox(Trinhdo);
 		cbbTrinhdo.setBounds(145, 132, 250, 22);
 		panel_5.add(cbbTrinhdo);
 
