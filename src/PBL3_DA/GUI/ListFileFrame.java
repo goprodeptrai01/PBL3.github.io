@@ -25,20 +25,16 @@ import javax.swing.JScrollPane;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.JTextField;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.Struct;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.event.ItemListener;
-import java.awt.event.ItemEvent;
 
 @SuppressWarnings("serial")
 public class ListFileFrame extends JFrame {
-
+	private static ListFileFrame Obj = null;
 	private JPanel contentPane;
 	private JTextField txtHotenHS;
 	private JTable tbDshs;
@@ -62,11 +58,50 @@ public class ListFileFrame extends JFrame {
 		});
 	}
 
+	
+	public static ListFileFrame getObj() {
+		if(Obj == null)
+		{
+			Obj = new ListFileFrame();
+			Obj.setVisible(true);
+		} return Obj;
+	}
 	/**
 	 * Create the frame.
 	 */
 	public ListFileFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Tìm kiếm việc làm");
+		initialize();
+	}
+
+	public void setViewinCondition(String HoTen, Boolean gender, String TinhThanh, String MucLuong, String TrinhDo,
+			String NgoaiNgu, String BangCap) {
+		tbDshs.setModel(tableModel);
+		ArrayList<HO_SO_VIEW> hsvArrayList = BLL_Timviec.Instance().GetConditionListHStoView_BLL(HoTen, gender,
+				TinhThanh, MucLuong, TrinhDo, NgoaiNgu, BangCap);
+		int i = 0;
+		for (i = 0; i <= hsvArrayList.size() - 1; i++) {
+			Object[] obj = { hsvArrayList.get(i).getId(), hsvArrayList.get(i).getHoTen(), hsvArrayList.get(i).getSdt(),
+					hsvArrayList.get(i).getNgaySinh(), hsvArrayList.get(i).getGioiTinh(),
+					hsvArrayList.get(i).getTinh() };
+			tableModel.addRow(obj);
+		}
+	}
+
+	public void setView() {
+		tbDshs.setModel(tableModel);
+		ArrayList<HO_SO_VIEW> hsvArrayList = BLL_Timviec.Instance().GetAllListHStoView_BLL();
+		int i = 0;
+		for (i = 0; i <= hsvArrayList.size() - 1; i++) {
+			Object[] obj = { hsvArrayList.get(i).getId(), hsvArrayList.get(i).getHoTen(), hsvArrayList.get(i).getSdt(),
+					hsvArrayList.get(i).getNgaySinh(), hsvArrayList.get(i).getGioiTinh(),
+					hsvArrayList.get(i).getTinh() };
+			tableModel.addRow(obj);
+		}
+	}
+
+	private void initialize() {
+//		setDefaultCloseOperation(ListFileFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1080, 758);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -222,10 +257,12 @@ public class ListFileFrame extends JFrame {
 		panel_3_1.add(cbbMucluongHS);
 
 		String Trinhdo[] = {
-				"Gioi",
-				"Kha",
-				"Trung Binh",
-				"Yeu"
+				"Ky su",
+				"Thac si",
+				"Pho tien si",
+				"Tien si",
+				"Pho giao su",
+				"Giao su"
 		};
 		JComboBox cbbTrinhdoHS = new JComboBox(Trinhdo);
 		cbbTrinhdoHS.setSelectedIndex(-1);
@@ -342,13 +379,20 @@ public class ListFileFrame extends JFrame {
 		tbDshs.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				FileFrame.getObj((int) tbDshs.getModel().getValueAt(0, tbDshs.getSelectedColumn()));
+				new FileFrame((int) tbDshs.getModel().getValueAt(0, tbDshs.getSelectedColumn())).frameHS.setVisible(true);
 			}
 		});
 		String ColsName[] = { "ID", "Họ Và Tên", "Số Điện Thoại", "Ngày Sinh", "Giới Tính", "Tỉnh/Thành phố" };
 		tableModel.setColumnIdentifiers(ColsName);
 		
-		JComboBox cbbLoaiTotNghiep = new JComboBox(Trinhdo);
+		String Loaitotnghiep[] = {
+				"Gioi",
+				"Kha",
+				"Trung binh",
+				"Yeu",
+				"Kem"
+		};
+		JComboBox cbbLoaiTotNghiep = new JComboBox(Loaitotnghiep);
 		cbbLoaiTotNghiep.setSelectedIndex(-1);
 		cbbLoaiTotNghiep.setBounds(46, 338, 266, 32);
 		panel_3_1.add(cbbLoaiTotNghiep);
@@ -364,35 +408,5 @@ public class ListFileFrame extends JFrame {
 		tableColumnModel.getColumn(3).setPreferredWidth(50);
 		tableColumnModel.getColumn(4).setPreferredWidth(30);
 		tableColumnModel.getColumn(5).setWidth(10);
-	}
-
-	public void setViewinCondition(String HoTen, Boolean gender, String TinhThanh, String MucLuong, String TrinhDo,
-			String NgoaiNgu, String BangCap) {
-		tbDshs.setModel(tableModel);
-		ArrayList<HO_SO_VIEW> hsvArrayList = BLL_Timviec.Instance().GetConditionListHStoView_BLL(HoTen, gender,
-				TinhThanh, MucLuong, TrinhDo, NgoaiNgu, BangCap);
-		int i = 0;
-		for (i = 0; i <= hsvArrayList.size() - 1; i++) {
-			Object[] obj = { hsvArrayList.get(i).getId(), hsvArrayList.get(i).getHoTen(), hsvArrayList.get(i).getSdt(),
-					hsvArrayList.get(i).getNgaySinh(), hsvArrayList.get(i).getGioiTinh(),
-					hsvArrayList.get(i).getTinh() };
-			tableModel.addRow(obj);
-		}
-	}
-
-	public void setView() {
-		tbDshs.setModel(tableModel);
-		ArrayList<HO_SO_VIEW> hsvArrayList = BLL_Timviec.Instance().GetAllListHStoView_BLL();
-		int i = 0;
-		for (i = 0; i <= hsvArrayList.size() - 1; i++) {
-			Object[] obj = { hsvArrayList.get(i).getId(), hsvArrayList.get(i).getHoTen(), hsvArrayList.get(i).getSdt(),
-					hsvArrayList.get(i).getNgaySinh(), hsvArrayList.get(i).getGioiTinh(),
-					hsvArrayList.get(i).getTinh() };
-			tableModel.addRow(obj);
-		}
-	}
-
-	private void initialize() {
-
 	}
 }

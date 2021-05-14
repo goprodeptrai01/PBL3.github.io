@@ -1,6 +1,6 @@
 package PBL3_DA.GUI;
 
-import java.awt.EventQueue; 
+import java.awt.EventQueue;
 import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,9 +14,11 @@ import javax.swing.JTextArea;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
+
 import com.toedter.calendar.JDateChooser;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.awt.event.ActionEvent;
@@ -30,18 +32,17 @@ import PBL3_DA.DTO.KI_NANG;
 import PBL3_DA.DTO.NN_TH;
 import PBL3_DA.DTO.TAI_KHOAN;
 
-public class FileFrame {
-	public static String city[] = { "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh", "Bến Tre",
-			"Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cao Bằng", "Cần Thơ", "Đà Nẵng",
-			"Đắk Lắk", "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam", "Hà Nội",
-			"Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa", "Kiên Giang",
-			"Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An", "Ninh Bình",
-			"Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh", "Quảng Trị",
-			"Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế",
+public class FileFrame extends JFrame {
+	public static String city[] = { "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh",
+			"Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cao Bằng", "Cần Thơ",
+			"Đà Nẵng", "Đắk Lắk", "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam",
+			"Hà Nội", "Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa",
+			"Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An",
+			"Ninh Bình", "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh",
+			"Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế",
 			"Tiền Giang", "Trà Vinh", "Tuyên Quang", "TP Hồ Chí Minh", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái" };
-	private static FileFrame Obj = null;
-	private JFrame frameHS;
-	
+	public JFrame frameHS;
+
 	public JFrame getFrameHS() {
 		return frameHS;
 	}
@@ -96,18 +97,11 @@ public class FileFrame {
 	/**
 	 * @wbp.parser.entryPoint
 	 */
-	private FileFrame(int ID) {
+	public FileFrame(int ID) {
 		IDHS = ID;
 		initialize();
 	}
 
-	public static FileFrame getObj(int id) {
-		if(Obj == null)
-		{
-			Obj = new FileFrame(id);
-			Obj.getFrameHS().setVisible(true);
-		} return Obj;
-	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -117,7 +111,7 @@ public class FileFrame {
 		frameHS = new JFrame();
 		frameHS.setTitle("H\u1ED2 S\u01A0");
 		frameHS.setResizable(false);
-		frameHS.setBounds(0, 0, 630, 498);
+		frameHS.setBounds(0, 0, 617, 491);
 		frameHS.getContentPane().setLayout(null);
 
 		JPanel panel = new JPanel();
@@ -130,10 +124,279 @@ public class FileFrame {
 		layeredPane.setBounds(179, 0, 435, 461);
 		frameHS.getContentPane().add(layeredPane);
 
+		ButtonGroup bg = new ButtonGroup();
+
+		String exp[] = { "1 thang", "3 thang", "6 thang", "1 nam", "2 nam", "4 nam", "8 nam" };
+
+		String role[] = { "Nhân viên", "Cộng tác viên", "Trưởng nhóm/Trưởng phòng", "Chuyên gia", "Quản lý cấp cao", };
+
+		String time[] = { "2021-05-09" };
+
+		String dvi[] = { "VND", "$", };
+
+		JPanel panel_4 = new JPanel();
+		panel_4.setLayout(null);
+		panel_4.setBounds(0, 0, 434, 460);
+		layeredPane.add(panel_4);
+
+		JLabel lb_panel4 = new JLabel("Tr\u00ECnh \u0111\u1ED9 & B\u1EB1ng c\u1EA5p");
+		lb_panel4.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lb_panel4.setBounds(145, 11, 148, 35);
+		panel_4.add(lb_panel4);
+
+		JLabel lb1_panel4 = new JLabel("Tr\u00ECnh \u0111\u1ED9");
+		lb1_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb1_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb1_panel4.setBounds(10, 80, 100, 25);
+		panel_4.add(lb1_panel4);
+
+		JLabel lb2_panel4 = new JLabel("\u0110\u01A1n v\u1ECB \u0111\u00E0o t\u1EA1o");
+		lb2_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb2_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb2_panel4.setBounds(10, 130, 100, 25);
+		panel_4.add(lb2_panel4);
+
+		JLabel lb3_panel4 = new JLabel("Th\u1EDDi gian");
+		lb3_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb3_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb3_panel4.setBounds(10, 180, 100, 25);
+		panel_4.add(lb3_panel4);
+
+		JLabel lb4_panel4 = new JLabel("Chuy\u00EAn ng\u00E0nh");
+		lb4_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb4_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb4_panel4.setBounds(10, 230, 100, 25);
+		panel_4.add(lb4_panel4);
+
+		JLabel lb5_panel4 = new JLabel("Lo\u1EA1i t\u1ED1t nghi\u1EC7p");
+		lb5_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb5_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb5_panel4.setBounds(10, 280, 100, 25);
+		panel_4.add(lb5_panel4);
+
+		txtTrinhdo = new JTextField();
+		txtTrinhdo.setColumns(10);
+		txtTrinhdo.setBorder(null);
+		txtTrinhdo.setBounds(145, 83, 250, 20);
+		panel_4.add(txtTrinhdo);
+
+		txtDonvidaotao = new JTextField();
+		txtDonvidaotao.setColumns(10);
+		txtDonvidaotao.setBorder(null);
+		txtDonvidaotao.setBounds(145, 133, 250, 20);
+		panel_4.add(txtDonvidaotao);
+
+		JButton btnLuu_panel4 = new JButton("L\u01B0u");
+		btnLuu_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnLuu_panel4.setBorder(null);
+		btnLuu_panel4.setBackground(new Color(220, 20, 60));
+		btnLuu_panel4.setBounds(145, 358, 89, 35);
+		panel_4.add(btnLuu_panel4);
+
+		JLabel lb6_panel4 = new JLabel("T\u1EEB");
+		lb6_panel4.setBounds(145, 186, 22, 14);
+		panel_4.add(lb6_panel4);
+
+		JLabel lb7_panel4 = new JLabel("\u0110\u1EBFn");
+		lb7_panel4.setBounds(271, 186, 25, 14);
+		panel_4.add(lb7_panel4);
+
+		txtChuyennganh = new JTextField();
+		txtChuyennganh.setColumns(10);
+		txtChuyennganh.setBorder(null);
+		txtChuyennganh.setBounds(145, 233, 250, 20);
+		panel_4.add(txtChuyennganh);
+
+		String Loaitotnghiep[] = { "Gioi", "Kha", "Trung Binh", "Yeu" };
+		JComboBox cbbLoaitotnghiep = new JComboBox(Loaitotnghiep);
+		cbbLoaitotnghiep.setBounds(145, 282, 250, 22);
+		panel_4.add(cbbLoaitotnghiep);
+
+		JDateChooser datechooserNSDen_Panel4 = new JDateChooser();
+		datechooserNSDen_Panel4.setBounds(297, 180, 98, 20);
+		panel_4.add(datechooserNSDen_Panel4);
+
+		JDateChooser datechooserNSTu_Panel4 = new JDateChooser();
+		datechooserNSTu_Panel4.setBounds(163, 180, 98, 20);
+		panel_4.add(datechooserNSTu_Panel4);
+
+		JPanel panel_3 = new JPanel();
+		panel_3.setBounds(0, 0, 434, 460);
+		panel_4.add(panel_3);
+		panel_3.setLayout(null);
+
+		JLabel lb_panel3 = new JLabel("Kinh nghi\u1EC7m");
+		lb_panel3.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lb_panel3.setBounds(145, 11, 148, 35);
+		panel_3.add(lb_panel3);
+
+		JLabel lb1_panel3 = new JLabel("Doanh nghi\u1EC7p");
+		lb1_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb1_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb1_panel3.setBounds(10, 80, 100, 25);
+		panel_3.add(lb1_panel3);
+
+		JLabel lb2_panel3 = new JLabel("N\u01A1i l\u00E0m vi\u1EC7c");
+		lb2_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb2_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb2_panel3.setBounds(10, 130, 100, 25);
+		panel_3.add(lb2_panel3);
+
+		JLabel lb3_panel3 = new JLabel("Th\u1EDDi gian l\u00E0m vi\u1EC7c");
+		lb3_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb3_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb3_panel3.setBounds(0, 180, 110, 25);
+		panel_3.add(lb3_panel3);
+
+		JLabel lb4_panel3 = new JLabel("M\u1EE9c l\u01B0\u01A1ng");
+		lb4_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb4_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb4_panel3.setBounds(10, 230, 100, 25);
+		panel_3.add(lb4_panel3);
+
+		JLabel lb5_panel3 = new JLabel("M\u00F4 t\u1EA3 c\u00F4ng vi\u1EC7c");
+		lb5_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb5_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb5_panel3.setBounds(10, 280, 100, 25);
+		panel_3.add(lb5_panel3);
+
+		JLabel lb6_panel3 = new JLabel("T\u1EEB");
+		lb6_panel3.setBounds(145, 186, 22, 14);
+		panel_3.add(lb6_panel3);
+
+		JLabel lb7_panel3 = new JLabel("\u0110\u1EBFn");
+		lb7_panel3.setBounds(271, 186, 25, 14);
+		panel_3.add(lb7_panel3);
+
+		JLabel lb8_panel3 = new JLabel(
+				"M\u00F4 t\u1EA3 nh\u1EEFng c\u00F4ng vi\u1EC7c, nhi\u1EC7m v\u1EE5 b\u1EA1n t\u1EEBng l\u00E0m");
+		lb8_panel3.setBounds(82, 57, 231, 14);
+		panel_3.add(lb8_panel3);
+
+		JScrollPane scrollPane_panel3 = new JScrollPane();
+		scrollPane_panel3.setBounds(145, 280, 250, 43);
+		panel_3.add(scrollPane_panel3);
+
+		JTextArea txtareaMotaCV = new JTextArea();
+		scrollPane_panel3.setViewportView(txtareaMotaCV);
+		JComboBox cbbDonvitien = new JComboBox(dvi);
+		cbbDonvitien.setBounds(145, 232, 68, 22);
+		panel_3.add(cbbDonvitien);
+
+		txtSotien = new JTextField();
+		txtSotien.setColumns(10);
+		txtSotien.setBorder(null);
+		txtSotien.setBounds(223, 233, 172, 20);
+		panel_3.add(txtSotien);
+
+		txtDoanhnghiep = new JTextField();
+		txtDoanhnghiep.setColumns(10);
+		txtDoanhnghiep.setBorder(null);
+		txtDoanhnghiep.setBounds(145, 83, 250, 20);
+		panel_3.add(txtDoanhnghiep);
+
+		JComboBox cbbNoilamviec_panel3 = new JComboBox(city);
+		cbbNoilamviec_panel3.setBounds(145, 132, 250, 22);
+		panel_3.add(cbbNoilamviec_panel3);
+
+		JButton btnLuu_panel3 = new JButton("L\u01B0u");
+		btnLuu_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnLuu_panel3.setBorder(null);
+		btnLuu_panel3.setBackground(new Color(220, 20, 60));
+		btnLuu_panel3.setBounds(145, 377, 89, 35);
+		panel_3.add(btnLuu_panel3);
+
+		JDateChooser datechooserNSTu_Panel3 = new JDateChooser();
+		datechooserNSTu_Panel3.setBounds(163, 180, 98, 20);
+		panel_3.add(datechooserNSTu_Panel3);
+
+		JDateChooser datechooserNSDen_Panel3 = new JDateChooser();
+		datechooserNSDen_Panel3.setBounds(297, 180, 98, 20);
+		panel_3.add(datechooserNSDen_Panel3);
+
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(0, 0, 434, 460);
+		panel_3.add(panel_2);
+		panel_2.setLayout(null);
+
+		JLabel lblThngTinChung = new JLabel("Th\u00F4ng tin chung");
+		lblThngTinChung.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblThngTinChung.setBounds(145, 11, 142, 35);
+		panel_2.add(lblThngTinChung);
+
+		JLabel lb1_panel2 = new JLabel("Kinh nghi\u1EC7m");
+		lb1_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb1_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb1_panel2.setBounds(10, 80, 140, 25);
+		panel_2.add(lb1_panel2);
+
+		JLabel lb2_panel2 = new JLabel("V\u1ECB tr\u00ED hi\u1EC7n t\u1EA1i");
+		lb2_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb2_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb2_panel2.setBounds(10, 130, 140, 25);
+		panel_2.add(lb2_panel2);
+
+		JLabel lb3_panel2 = new JLabel("V\u1ECB tr\u00ED mong mu\u1ED1n");
+		lb3_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb3_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb3_panel2.setBounds(10, 180, 140, 25);
+		panel_2.add(lb3_panel2);
+
+		JLabel lb4_panel2 = new JLabel("M\u1EE9c l\u01B0\u01A1ng mong mu\u1ED1n");
+		lb4_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb4_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb4_panel2.setBounds(0, 230, 150, 25);
+		panel_2.add(lb4_panel2);
+
+		JLabel lb5_panel2 = new JLabel("N\u01A1i l\u00E0m vi\u1EC7c");
+		lb5_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb5_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb5_panel2.setBounds(10, 280, 140, 25);
+		panel_2.add(lb5_panel2);
+
+		JLabel lb6_panel2 = new JLabel("M\u1EE5c ti\u00EAu c\u00F4ng vi\u1EC7c");
+		lb6_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
+		lb6_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lb6_panel2.setBounds(10, 330, 140, 25);
+		panel_2.add(lb6_panel2);
+		JComboBox cbbKinhnghiem = new JComboBox(exp);
+		cbbKinhnghiem.setBounds(160, 82, 250, 22);
+		panel_2.add(cbbKinhnghiem);
+		JComboBox cbbVitrihientai = new JComboBox(role);
+		cbbVitrihientai.setBounds(160, 132, 250, 22);
+		panel_2.add(cbbVitrihientai);
+
+		JComboBox cbbVitrimongmuon = new JComboBox(role);
+		cbbVitrimongmuon.setBounds(160, 182, 250, 22);
+		panel_2.add(cbbVitrimongmuon);
+
+		txtMucluong = new JTextField();
+		txtMucluong.setColumns(10);
+		txtMucluong.setBounds(160, 233, 250, 20);
+		panel_2.add(txtMucluong);
+
+		JComboBox cbbNoilamviec = new JComboBox(city);
+		cbbNoilamviec.setBounds(160, 282, 250, 22);
+		panel_2.add(cbbNoilamviec);
+
+		JScrollPane scrollPane_panel2 = new JScrollPane();
+		scrollPane_panel2.setBounds(160, 330, 250, 49);
+		panel_2.add(scrollPane_panel2);
+
+		JTextArea txareaMuctieu = new JTextArea();
+		scrollPane_panel2.setViewportView(txareaMuctieu);
+
+		JButton btnLuu_panel2 = new JButton("L\u01B0u");
+		btnLuu_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnLuu_panel2.setBorder(null);
+		btnLuu_panel2.setBackground(new Color(220, 20, 60));
+		btnLuu_panel2.setBounds(160, 399, 90, 35);
+		panel_2.add(btnLuu_panel2);
+
 		JPanel panel_1 = new JPanel();
-		panel_1.setLayout(null);
 		panel_1.setBounds(0, 0, 434, 460);
-		layeredPane.add(panel_1);
+		panel_2.add(panel_1);
+		panel_1.setLayout(null);
 
 		JLabel lb1_panel1 = new JLabel("Th\u00F4ng tin t\u00E0i kho\u1EA3n");
 		lb1_panel1.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -201,8 +464,6 @@ public class FileFrame {
 		txtDiachi.setBorder(null);
 		txtDiachi.setBounds(145, 333, 250, 20);
 		panel_1.add(txtDiachi);
-
-		ButtonGroup bg = new ButtonGroup();
 		JRadioButton rdbtn_male = new JRadioButton("Male");
 		rdbtn_male.setBounds(145, 232, 109, 23);
 		panel_1.add(rdbtn_male);
@@ -220,290 +481,15 @@ public class FileFrame {
 		btnLuu_panel1.setBounds(145, 389, 89, 35);
 		panel_1.add(btnLuu_panel1);
 
-		JPanel panel_2 = new JPanel();
-		panel_2.setLayout(null);
-		panel_2.setBounds(0, 0, 434, 460);
-		layeredPane.add(panel_2);
+		JButton btnXoa = new JButton("Xoá");
+		btnXoa.setBounds(306, 396, 89, 23);
+		panel_1.add(btnXoa);
 
-		JLabel lblThngTinChung = new JLabel("Th\u00F4ng tin chung");
-		lblThngTinChung.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lblThngTinChung.setBounds(145, 11, 142, 35);
-		panel_2.add(lblThngTinChung);
+		panel_1.setVisible(true);
 
-		JLabel lb1_panel2 = new JLabel("Kinh nghi\u1EC7m");
-		lb1_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb1_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb1_panel2.setBounds(10, 80, 140, 25);
-		panel_2.add(lb1_panel2);
-
-		JLabel lb2_panel2 = new JLabel("V\u1ECB tr\u00ED hi\u1EC7n t\u1EA1i");
-		lb2_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb2_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb2_panel2.setBounds(10, 130, 140, 25);
-		panel_2.add(lb2_panel2);
-
-		JLabel lb3_panel2 = new JLabel("V\u1ECB tr\u00ED mong mu\u1ED1n");
-		lb3_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb3_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb3_panel2.setBounds(10, 180, 140, 25);
-		panel_2.add(lb3_panel2);
-
-		JLabel lb4_panel2 = new JLabel("M\u1EE9c l\u01B0\u01A1ng mong mu\u1ED1n");
-		lb4_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb4_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb4_panel2.setBounds(0, 230, 150, 25);
-		panel_2.add(lb4_panel2);
-
-		JLabel lb5_panel2 = new JLabel("N\u01A1i l\u00E0m vi\u1EC7c");
-		lb5_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb5_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb5_panel2.setBounds(10, 280, 140, 25);
-		panel_2.add(lb5_panel2);
-
-		JLabel lb6_panel2 = new JLabel("M\u1EE5c ti\u00EAu c\u00F4ng vi\u1EC7c");
-		lb6_panel2.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb6_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb6_panel2.setBounds(10, 330, 140, 25);
-		panel_2.add(lb6_panel2);
 		
-		String exp[] = {
-				"1 thang","3 thang","6 thang",
-				"1 nam","2 nam","4 nam","8 nam"
-		};
-		JComboBox cbbKinhnghiem = new JComboBox(exp);
-		cbbKinhnghiem.setBounds(160, 82, 250, 22);
-		panel_2.add(cbbKinhnghiem);
-
-		String role[] = {
-				"Nhân viên",
-				"Cộng tác viên",
-				"Trưởng nhóm/Trưởng phòng",
-				"Chuyên gia",
-				"Quản lý cấp cao",
-		};
-		JComboBox cbbVitrihientai = new JComboBox(role);
-		cbbVitrihientai.setBounds(160, 132, 250, 22);
-		panel_2.add(cbbVitrihientai);
-
-		JComboBox cbbVitrimongmuon = new JComboBox(role);
-		cbbVitrimongmuon.setBounds(160, 182, 250, 22);
-		panel_2.add(cbbVitrimongmuon);
-
-		txtMucluong = new JTextField();
-		txtMucluong.setColumns(10);
-		txtMucluong.setBounds(160, 233, 250, 20);
-		panel_2.add(txtMucluong);
-
-		JComboBox cbbNoilamviec = new JComboBox(city);
-		cbbNoilamviec.setBounds(160, 282, 250, 22);
-		panel_2.add(cbbNoilamviec);
-
-		JScrollPane scrollPane_panel2 = new JScrollPane();
-		scrollPane_panel2.setBounds(160, 330, 250, 49);
-		panel_2.add(scrollPane_panel2);
-
-		JTextArea txareaMuctieu = new JTextArea();
-		scrollPane_panel2.setViewportView(txareaMuctieu);
-
-		JButton btnLuu_panel2 = new JButton("L\u01B0u");
-		btnLuu_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnLuu_panel2.setBorder(null);
-		btnLuu_panel2.setBackground(new Color(220, 20, 60));
-		btnLuu_panel2.setBounds(160, 399, 90, 35);
-		panel_2.add(btnLuu_panel2);
-
-		JPanel panel_3 = new JPanel();
-		panel_3.setLayout(null);
-		panel_3.setBounds(0, 0, 434, 460);
-		layeredPane.add(panel_3);
-
-		JLabel lb_panel3 = new JLabel("Kinh nghi\u1EC7m");
-		lb_panel3.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lb_panel3.setBounds(145, 11, 148, 35);
-		panel_3.add(lb_panel3);
-
-		JLabel lb1_panel3 = new JLabel("Doanh nghi\u1EC7p");
-		lb1_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb1_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb1_panel3.setBounds(10, 80, 100, 25);
-		panel_3.add(lb1_panel3);
-
-		JLabel lb2_panel3 = new JLabel("N\u01A1i l\u00E0m vi\u1EC7c");
-		lb2_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb2_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb2_panel3.setBounds(10, 130, 100, 25);
-		panel_3.add(lb2_panel3);
-
-		JLabel lb3_panel3 = new JLabel("Th\u1EDDi gian l\u00E0m vi\u1EC7c");
-		lb3_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb3_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb3_panel3.setBounds(0, 180, 110, 25);
-		panel_3.add(lb3_panel3);
-
-		JLabel lb4_panel3 = new JLabel("M\u1EE9c l\u01B0\u01A1ng");
-		lb4_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb4_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb4_panel3.setBounds(10, 230, 100, 25);
-		panel_3.add(lb4_panel3);
-
-		JLabel lb5_panel3 = new JLabel("M\u00F4 t\u1EA3 c\u00F4ng vi\u1EC7c");
-		lb5_panel3.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb5_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb5_panel3.setBounds(10, 280, 100, 25);
-		panel_3.add(lb5_panel3);
-
-		JLabel lb6_panel3 = new JLabel("T\u1EEB");
-		lb6_panel3.setBounds(145, 186, 22, 14);
-		panel_3.add(lb6_panel3);
-		
-		String time[] = {
-				"2021-05-09"
-		};
-		JComboBox cbbTu_panel3 = new JComboBox(time);
-		cbbTu_panel3.setBounds(166, 182, 68, 22);
-		panel_3.add(cbbTu_panel3);
-		
-		JLabel lb7_panel3 = new JLabel("\u0110\u1EBFn");
-		lb7_panel3.setBounds(271, 186, 25, 14);
-		panel_3.add(lb7_panel3);
-
-		JComboBox cbbDen_panel3 = new JComboBox(time);
-		cbbDen_panel3.setBounds(300, 182, 68, 22);
-		panel_3.add(cbbDen_panel3);
-
-		JLabel lb8_panel3 = new JLabel(
-				"M\u00F4 t\u1EA3 nh\u1EEFng c\u00F4ng vi\u1EC7c, nhi\u1EC7m v\u1EE5 b\u1EA1n t\u1EEBng l\u00E0m");
-		lb8_panel3.setBounds(82, 57, 231, 14);
-		panel_3.add(lb8_panel3);
-
-		JScrollPane scrollPane_panel3 = new JScrollPane();
-		scrollPane_panel3.setBounds(145, 280, 250, 43);
-		panel_3.add(scrollPane_panel3);
-
-		JTextArea txtareaMotaCV = new JTextArea();
-		scrollPane_panel3.setViewportView(txtareaMotaCV);
-
-		String dvi[] = {
-				"VND",
-				"$",
-		};
-		JComboBox cbbDonvitien = new JComboBox(dvi);
-		cbbDonvitien.setBounds(145, 232, 68, 22);
-		panel_3.add(cbbDonvitien);
-
-		txtSotien = new JTextField();
-		txtSotien.setColumns(10);
-		txtSotien.setBorder(null);
-		txtSotien.setBounds(223, 233, 172, 20);
-		panel_3.add(txtSotien);
-
-		txtDoanhnghiep = new JTextField();
-		txtDoanhnghiep.setColumns(10);
-		txtDoanhnghiep.setBorder(null);
-		txtDoanhnghiep.setBounds(145, 83, 250, 20);
-		panel_3.add(txtDoanhnghiep);
-
-		JComboBox cbbNoilamviec_panel3 = new JComboBox(city);
-		cbbNoilamviec_panel3.setBounds(145, 132, 250, 22);
-		panel_3.add(cbbNoilamviec_panel3);
-
-		JButton btnLuu_panel3 = new JButton("L\u01B0u");
-		btnLuu_panel3.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnLuu_panel3.setBorder(null);
-		btnLuu_panel3.setBackground(new Color(220, 20, 60));
-		btnLuu_panel3.setBounds(145, 377, 89, 35);
-		panel_3.add(btnLuu_panel3);
-
-		JPanel panel_4 = new JPanel();
-		panel_4.setLayout(null);
-		panel_4.setBounds(0, 0, 434, 460);
-		layeredPane.add(panel_4);
-
-		JLabel lb_panel4 = new JLabel("Tr\u00ECnh \u0111\u1ED9 & B\u1EB1ng c\u1EA5p");
-		lb_panel4.setFont(new Font("Tahoma", Font.BOLD, 15));
-		lb_panel4.setBounds(145, 11, 148, 35);
-		panel_4.add(lb_panel4);
-
-		JLabel lb1_panel4 = new JLabel("Tr\u00ECnh \u0111\u1ED9");
-		lb1_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb1_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb1_panel4.setBounds(10, 80, 100, 25);
-		panel_4.add(lb1_panel4);
-
-		JLabel lb2_panel4 = new JLabel("\u0110\u01A1n v\u1ECB \u0111\u00E0o t\u1EA1o");
-		lb2_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb2_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb2_panel4.setBounds(10, 130, 100, 25);
-		panel_4.add(lb2_panel4);
-
-		JLabel lb3_panel4 = new JLabel("Th\u1EDDi gian");
-		lb3_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb3_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb3_panel4.setBounds(10, 180, 100, 25);
-		panel_4.add(lb3_panel4);
-
-		JLabel lb4_panel4 = new JLabel("Chuy\u00EAn ng\u00E0nh");
-		lb4_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb4_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb4_panel4.setBounds(10, 230, 100, 25);
-		panel_4.add(lb4_panel4);
-
-		JLabel lb5_panel4 = new JLabel("Lo\u1EA1i t\u1ED1t nghi\u1EC7p");
-		lb5_panel4.setHorizontalAlignment(SwingConstants.RIGHT);
-		lb5_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
-		lb5_panel4.setBounds(10, 280, 100, 25);
-		panel_4.add(lb5_panel4);
-
-		txtTrinhdo = new JTextField();
-		txtTrinhdo.setColumns(10);
-		txtTrinhdo.setBorder(null);
-		txtTrinhdo.setBounds(145, 83, 250, 20);
-		panel_4.add(txtTrinhdo);
-
-		txtDonvidaotao = new JTextField();
-		txtDonvidaotao.setColumns(10);
-		txtDonvidaotao.setBorder(null);
-		txtDonvidaotao.setBounds(145, 133, 250, 20);
-		panel_4.add(txtDonvidaotao);
-
-		JButton btnLuu_panel4 = new JButton("L\u01B0u");
-		btnLuu_panel4.setFont(new Font("Tahoma", Font.BOLD, 12));
-		btnLuu_panel4.setBorder(null);
-		btnLuu_panel4.setBackground(new Color(220, 20, 60));
-		btnLuu_panel4.setBounds(145, 358, 89, 35);
-		panel_4.add(btnLuu_panel4);
-
-		JLabel lb6_panel4 = new JLabel("T\u1EEB");
-		lb6_panel4.setBounds(145, 186, 22, 14);
-		panel_4.add(lb6_panel4);
-
-		JComboBox cbbTu_panel4 = new JComboBox(time);
-		cbbTu_panel4.setBounds(166, 182, 68, 22);
-		panel_4.add(cbbTu_panel4);
-
-		JLabel lb7_panel4 = new JLabel("\u0110\u1EBFn");
-		lb7_panel4.setBounds(271, 186, 25, 14);
-		panel_4.add(lb7_panel4);
-
-		JComboBox cbbDen_panel4 = new JComboBox(time);
-		cbbDen_panel4.setBounds(300, 182, 68, 22);
-		panel_4.add(cbbDen_panel4);
-
-		txtChuyennganh = new JTextField();
-		txtChuyennganh.setColumns(10);
-		txtChuyennganh.setBorder(null);
-		txtChuyennganh.setBounds(145, 233, 250, 20);
-		panel_4.add(txtChuyennganh);
-		
-		String Trinhdo[] = {
-				"Gioi",
-				"Kha",
-				"Trung Binh",
-				"Yeu"
-		};
-		JComboBox cbbLoaitotnghiep = new JComboBox(Trinhdo);
-		cbbLoaitotnghiep.setBounds(145, 282, 250, 22);
-		panel_4.add(cbbLoaitotnghiep);
+		panel_2.setVisible(false);
+		panel_3.setVisible(false);
 
 		JPanel panel_5 = new JPanel();
 		panel_5.setLayout(null);
@@ -539,23 +525,9 @@ public class FileFrame {
 		lb4_panel5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lb4_panel5.setBounds(10, 180, 100, 25);
 		panel_5.add(lb4_panel5);
-		
-		String Bangcap[] = {
-				"Toeic 650",
-				"Toeic 525",
-				"Ielts 6.0",
-				"Ielts 7.0",
-				"N0",
-				"N1",
-				"N2",
-				"N3",
-				"N4",
-				"N5",
-				"Delf a1",
-				"Delf a2",
-				"Delf b1",
-				"Delf b2"
-		};
+
+		String Bangcap[] = { "Toeic 650", "Toeic 525", "Ielts 6.0", "Ielts 7.0", "N0", "N1", "N2", "N3", "N4", "N5",
+				"Delf a1", "Delf a2", "Delf b1", "Delf b2" };
 		JComboBox cbbBangcap = new JComboBox(Bangcap);
 		cbbBangcap.setBounds(145, 182, 250, 22);
 		panel_5.add(cbbBangcap);
@@ -603,16 +575,12 @@ public class FileFrame {
 		chckbxMsOutlook.setBounds(160, 312, 120, 23);
 		panel_5.add(chckbxMsOutlook);
 
-		String Ngoaingu[] = {
-				"Anh",
-				"Nhat",
-				"Phap",
-				"Y"
-		};
+		String Ngoaingu[] = { "Anh", "Nhat", "Phap", "Y" };
 		JComboBox cbbNgoaingu = new JComboBox(Ngoaingu);
 		cbbNgoaingu.setBounds(145, 82, 250, 22);
 		panel_5.add(cbbNgoaingu);
 
+		String Trinhdo[] = { "Ky su", "Thac si", "Pho tien si", "Tien si", "Pho giao su", "Giao su" };
 		JComboBox cbbTrinhdo = new JComboBox(Trinhdo);
 		cbbTrinhdo.setBounds(145, 132, 250, 22);
 		panel_5.add(cbbTrinhdo);
@@ -701,15 +669,13 @@ public class FileFrame {
 
 		JTextArea txtareaKynang = new JTextArea();
 		scrollPane1_panel6.setViewportView(txtareaKynang);
-		
-		panel_1.setVisible(true);
-		panel_2.setVisible(false);
-		panel_3.setVisible(false);
 		panel_4.setVisible(false);
 		panel_5.setVisible(false);
 		panel_6.setVisible(false);
-		
+
 		if (IDHS == 0) {
+			btnXoa.setEnabled(false);
+			btnXoa.setVisible(false);
 			txtHoten.setText("");
 			txtSdt.setText("");
 			txtDiachi.setText("");
@@ -724,7 +690,7 @@ public class FileFrame {
 			txtareaPhanmemkhac.setText("");
 			txtareaSothich.setText("");
 			txtareaKynang.setText("");
-			Date date = null;
+			java.util.Date date = null;
 			try {
 				date = new SimpleDateFormat("dd/MM/yyyy").parse("1/1/2001");
 			} catch (ParseException e1) {
@@ -738,10 +704,10 @@ public class FileFrame {
 			cbbVitrimongmuon.setSelectedIndex(-1);
 			cbbNoilamviec_panel3.setSelectedIndex(-1);
 			cbbNoilamviec.setSelectedIndex(-1);
-			cbbTu_panel3.setSelectedIndex(-1);
-			cbbDen_panel3.setSelectedIndex(-1);
-			cbbTu_panel4.setSelectedIndex(-1);
-			cbbDen_panel4.setSelectedIndex(-1);
+			datechooserNSTu_Panel3.setDate(date);
+			datechooserNSDen_Panel3.setDate(date);
+			datechooserNSTu_Panel4.setDate(date);
+			datechooserNSDen_Panel4.setDate(date);
 			cbbDonvitien.setSelectedIndex(-1);
 			cbbLoaitotnghiep.setSelectedIndex(-1);
 			cbbNgoaingu.setSelectedIndex(-1);
@@ -749,6 +715,8 @@ public class FileFrame {
 			cbbBangcap.setSelectedIndex(-1);
 			rdbtn_male.isSelected();
 		} else {
+			btnXoa.setEnabled(true);
+			btnXoa.setVisible(true);
 			HO_SO hs = BLL_Timviec.Instance().GetHSbyIDHS(IDHS);
 			TAI_KHOAN tk = BLL_Timviec.Instance().GetTKbyID(hs.getId());
 			DIA_CHI dc = BLL_Timviec.Instance().GetDCbyID(hs.getId_DC());
@@ -771,29 +739,30 @@ public class FileFrame {
 			txtareaKynang.setText(kn.getKyNangKhac());
 			Date date = new java.sql.Date(hs.getNgaySinh().getTime());
 			datechooserNS.setDate(date);
-			
+
 			cbbThanhpho.setSelectedItem(dc.getTinh());
 			cbbKinhnghiem.setSelectedItem(hs.getKinhNghiem());
 			cbbVitrihientai.setSelectedItem(hs.getViTriHienTai());
 			cbbVitrimongmuon.setSelectedItem(hs.getViTriMongMuon());
-			cbbNoilamviec_panel3.setSelectedIndex(-1);
-			cbbNoilamviec.setSelectedIndex(-1);
-			cbbTu_panel3.setSelectedItem(hs.getThoiGianBatDauLam());
-			cbbDen_panel3.setSelectedItem(hs.getThoiGianKetThucLam());
-			cbbTu_panel4.setSelectedItem(bc.getThoiGianBatDau());
-			cbbDen_panel4.setSelectedItem(bc.getThoiGianKetThuc());
+			cbbNoilamviec_panel3.setSelectedItem(hs.getNoiLamViec());
+			cbbNoilamviec.setSelectedItem(hs.getNoiLamViec());
+			datechooserNSTu_Panel3.setDate(new java.sql.Date(hs.getThoiGianBatDauLam().getTime()));
+			datechooserNSDen_Panel3.setDate(new java.sql.Date(hs.getThoiGianKetThucLam().getTime()));
+			datechooserNSTu_Panel4.setDate(new java.sql.Date(bc.getThoiGianBatDau().getTime()));
+			datechooserNSDen_Panel4.setDate(new java.sql.Date(bc.getThoiGianKetThuc().getTime()));
 			cbbDonvitien.setSelectedIndex(0);
 			cbbLoaitotnghiep.setSelectedItem(bc.getLoaiTotNghiep());
 			cbbNgoaingu.setSelectedItem(nt.getLoaiNgonNgu());
 			cbbTrinhdo.setSelectedItem(nt.getTrinhDo());
+			// asd
 			cbbBangcap.setSelectedItem(nt.getBangCap());
-			if(hs.getGioiTinh() == true) {
+			if (hs.getGioiTinh() == true) {
 				rdbtn_male.isSelected();
 			} else {
 				rdbtn_female.isSelected();
 			}
 		}
-		
+
 		JButton btnThongtinTaikhoan = new JButton("Th\u00F4ng tin t\u00E0i kho\u1EA3n");
 		btnThongtinTaikhoan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -901,7 +870,6 @@ public class FileFrame {
 		btnKynangcanhan.setBackground(new Color(30, 144, 255));
 		btnKynangcanhan.setBounds(0, 380, 180, 76);
 		panel.add(btnKynangcanhan);
-
 		btnLuu_panel1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean check = false;
@@ -944,32 +912,18 @@ public class FileFrame {
 					// panel3 kinh nghiem
 					hs.setTenCongTyDangLam(txtDoanhnghiep.getText());
 					hs.setNoiLamViec((String) cbbNoilamviec_panel3.getSelectedItem());
-					try {
-						hs.setThoiGianBatDauLam(new java.sql.Date(new SimpleDateFormat("dd/MM/yyyy")
-								.parse((String) cbbTu_panel3.getSelectedItem()).getTime()));
-						hs.setThoiGianKetThucLam(new java.sql.Date(new SimpleDateFormat("dd/MM/yyyy")
-								.parse((String) cbbDen_panel3.getSelectedItem()).getTime()));
-					} catch (ParseException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
+					hs.setThoiGianBatDauLam(new java.sql.Date(datechooserNSTu_Panel3.getDate().getTime()));
+					hs.setThoiGianKetThucLam(new java.sql.Date(datechooserNSDen_Panel3.getDate().getTime()));
+					if (cbbDonvitien.getSelectedIndex() == 0) {
+						hs.setMucLuong(Integer.parseInt(txtSotien.getText()) * 23061);
 					}
-						if(cbbDonvitien.getSelectedIndex() == 0) {
-							hs.setMucLuong(Integer.parseInt(txtSotien.getText())*23061);
-						}
 					hs.setMoTaCV(txtareaMotaCV.getText());
 					// panel4 Trinh do va bang cap
 					BANG_CAP bc = new BANG_CAP();
 					bc.setTrinhDo(txtTrinhdo.getText());
 					bc.setDonViDaoTao(txtDonvidaotao.getText());
-					try {
-						bc.setThoiGianBatDau(new java.sql.Date(new SimpleDateFormat("dd/MM/yyyy")
-								.parse((String) cbbTu_panel4.getSelectedItem()).getTime()));
-						bc.setThoiGianKetThuc(new java.sql.Date(new SimpleDateFormat("dd/MM/yyyy")
-								.parse((String) cbbDen_panel4.getSelectedItem()).getTime()));
-					} catch (ParseException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
+					bc.setThoiGianBatDau(new java.sql.Date(datechooserNSTu_Panel4.getDate().getTime()));
+					bc.setThoiGianKetThuc(new java.sql.Date(datechooserNSDen_Panel4.getDate().getTime()));
 					bc.setLoaiTotNghiep((String) cbbLoaitotnghiep.getSelectedItem());
 					bc.setChuyenNganh(txtChuyennganh.getText());
 					hs.setId_BC(bc.getId());
@@ -1052,7 +1006,7 @@ public class FileFrame {
 					kn.setKyNangKhac(txtareaKynang.getText());
 					hs.setId_KN(kn.getId());
 					BLL_Timviec.Instance().ExecuteDB(hs, bc, dc, kn, nt, tk);
-//						System.exit(0);
+					// System.exit(0);
 
 				} while (check == true);
 			}

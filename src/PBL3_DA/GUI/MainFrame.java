@@ -243,7 +243,7 @@ public class MainFrame {
 		JButton btnTaohs = new JButton("T\u1EA1o h\u1ED3 s\u01A1", TaoHoSoIcon);
 		btnTaohs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FileFrame.getObj(0);
+				new FileFrame(0).frameHS.setVisible(true);;
 			}
 		});
 		btnTaohs.setBackground(new Color(51, 102, 204));
@@ -279,7 +279,7 @@ public class MainFrame {
 		JButton btnTuhs = new JButton("T\u1EE7 h\u1ED3 s\u01A1", TuhosoIcon);
 		btnTuhs.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				FileFrame.getObj(LoginFrame.getIDUS());
+				new FileFrame(LoginFrame.getIDUS()).frameHS.setVisible(true);
 			}
 		});
 		btnTuhs.setBounds(0, 0, 121, 45);
@@ -352,6 +352,11 @@ public class MainFrame {
 		comboBox_2_1_5_1.setBounds(46, 355, 266, 32);
 		
 		JButton btnTimkiemhs = new JButton("T\u00ECm h\u1ED3 s\u01A1", null);
+		btnTimkiemhs.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new ListFileFrame().setVisible(true);
+			}
+		});
 		btnTimkiemhs.setBounds(131, 0, 121, 45);
 		btnTimkiemhs.setFont(new Font("Calibri", Font.BOLD, 15));
 		btnTimkiemhs.setBorder(null);

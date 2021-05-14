@@ -182,7 +182,7 @@ public class TKVL_DAL {
 		connection = null;
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			addBANG_CAP_DAL(bc);
@@ -228,7 +228,7 @@ public class TKVL_DAL {
 	public void addBANG_CAP_DAL(BANG_CAP bc) {
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			String query = "insert into BANG_CAP(TrinhDo,DonViDaoTao,ThoiGianBatDau,ThoiGianKetThuc,ChuyenNganh,LoaiTotNghiep) values (?,?,?,?,?,?)";
@@ -249,7 +249,7 @@ public class TKVL_DAL {
 	public void addDIA_CHI_DAL(DIA_CHI dc) {
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			String query = "insert into DIA_CHI(Tinh,DiaChiChiTiet) values (?,?)";
@@ -266,7 +266,7 @@ public class TKVL_DAL {
 	public void addKI_NANG_DAL(KI_NANG kn) {
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			String query = "insert into KI_NANG(LanhDao,LamViecNhom,RaChienLuoc,GiaiQuyetVD,QuanLyNhanLuc,GiaoTiep,QuanLyThoiGian,QuanLyDuAn,SangTao,SoThich,KyNangKhac) values (?,?,?,?,?,?,?,?,?,?,?)";
@@ -292,7 +292,7 @@ public class TKVL_DAL {
 	public void addNN_TH_DAL(NN_TH nt) {
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			String query = "insert into NN_TH(LoaiNgonNgu,TrinhDo,BangCap,Word,Excel,PowerPoint,Outlook,PhanMemKhac) values (?,?,?,?,?,?,?,?)";
@@ -316,7 +316,7 @@ public class TKVL_DAL {
 		connection = null;
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			editBANG_CAP_DAL(bc);
@@ -359,7 +359,7 @@ public class TKVL_DAL {
 	public void editBANG_CAP_DAL(BANG_CAP bc) {
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			String query = "update BANG_CAP set TrinhDo=?,DonViDaoTao=?,ThoiGianBatDau=?,ThoiGianKetThuc=?,ChuyenNganh=?,LoaiTotNghiep=? where id=?";
@@ -382,7 +382,7 @@ public class TKVL_DAL {
 	public void editDIA_CHI_DAL(DIA_CHI dc) {
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			String query = "update DIA_CHI set Tinh=?,DiaChiChiTiet=? where id=?";
@@ -401,7 +401,7 @@ public class TKVL_DAL {
 	public void editKI_NANG_DAL(KI_NANG kn) {
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			String query = "update KI_NANG set LanhDao=?,LamViecNhom=?,RaChienLuoc=?,GiaiQuyetVD=?,QuanLyNhanLuc=?,GiaoTiep=?,QuanLyThoiGian=?,QuanLyDuAn=?,SangTao=?,SoThich=?,KyNangKhac=? where id=?";
@@ -429,7 +429,7 @@ public class TKVL_DAL {
 	public void editNN_TH_DAL(NN_TH nt) {
 		PreparedStatement statement = null;
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlserver://localhost,DatabaseName=TimKiemViecLam", "sa",
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
 
 			String query = "update NN_TH set LoaiNgonNgu=?,TrinhDo=?,BangCap=?,Word=?,Excel=?,PowerPoint=?,Outlook=?,PhanMemKhac=? where id=?";
