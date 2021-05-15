@@ -117,6 +117,7 @@ public class BLL_Timviec {
 
 	public void DelbyIDHS(int iDHS) {
 		TKVL_DAL.Instance().delHO_SO_DAL(iDHS);
+		TKVL_DAL.Instance().delTAI_KHOAN_DAL(iDHS);
 	}
 	
 }

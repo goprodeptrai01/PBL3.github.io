@@ -499,6 +499,25 @@ public class TKVL_DAL {
 			System.out.println("Error " + e);
 		}
 	}
+	
+	public void delTAI_KHOAN_DAL(int iDHS) {
+		connection = null;
+		PreparedStatement statement = null;
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam;", "sa",
+					"sa");
+
+			String query = "delete from TAI_KHOAN where id=?";
+			statement = connection.prepareCall(query);
+
+			statement.setInt(1, iDHS);
+
+			statement.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error " + e);
+		}
+	}
 
 	public ArrayList<HO_SO_VIEW> GetConditionListHStoView_DAL(String hoTen, Boolean gender, String tinhThanh,
 			String mucLuong, String trinhDo, String ngoaiNgu, String bangCap) {
