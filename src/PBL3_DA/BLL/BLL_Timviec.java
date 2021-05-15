@@ -114,5 +114,9 @@ public class BLL_Timviec {
 		// TODO Auto-generated method stub
 		return TKVL_DAL.Instance().GetConditionListHStoView_DAL(hoTen,gender,tinhThanh,mucLuong,trinhDo,ngoaiNgu,bangCap);
 	}
+
+	public void DelbyIDHS(int iDHS) {
+		TKVL_DAL.Instance().delHO_SO_DAL(iDHS);
+	}
 	
 }

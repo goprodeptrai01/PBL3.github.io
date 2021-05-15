@@ -10,6 +10,7 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 
 import PBL3_DA.BLL.BLL_Timviec;
+import PBL3_DA.DTO.HO_SO;
 import PBL3_DA.DTO.HO_SO_VIEW;
 
 import javax.swing.JLabel;
@@ -246,10 +247,10 @@ public class ListFileFrame extends JFrame {
 		panel_3_1.add(cbbTinhthanhHS);
 
 		String money[] = {
-//				"0",
-//				"1000000",
-//				"2000000",
-//				"3000000"
+				"0",
+				"1000000",
+				"2000000",
+				"3000000"
 		};
 		JComboBox cbbMucluongHS = new JComboBox(money);
 		cbbMucluongHS.setSelectedIndex(-1);
@@ -257,12 +258,12 @@ public class ListFileFrame extends JFrame {
 		panel_3_1.add(cbbMucluongHS);
 
 		String Trinhdo[] = {
-//				"Ky su",
-//				"Thac si",
-//				"Pho tien si",
-//				"Tien si",
-//				"Pho giao su",
-//				"Giao su"
+				"Ky su",
+				"Thac si",
+				"Pho tien si",
+				"Tien si",
+				"Pho giao su",
+				"Giao su"
 		};
 		JComboBox cbbTrinhdoHS = new JComboBox(Trinhdo);
 		cbbTrinhdoHS.setSelectedIndex(-1);
@@ -270,27 +271,27 @@ public class ListFileFrame extends JFrame {
 		panel_3_1.add(cbbTrinhdoHS);
 
 		String Ngoaingu[] = {
-//				"Anh",
-//				"Nhat",
-//				"Phap",
-//				"Y"
+				"Anh",
+				"Nhat",
+				"Phap",
+				"Y"
 		};
 		
 		String Bangcap[] = {
-//				"Toeic 650",
-//				"Toeic 525",
-//				"Ielts 6.0",
-//				"Ielts 7.0",
-//				"N0",
-//				"N1",
-//				"N2",
-//				"N3",
-//				"N4",
-//				"N5",
-//				"Delf a1",
-//				"Delf a2",
-//				"Delf b1",
-//				"Delf b2"
+				"Toeic 650",
+				"Toeic 525",
+				"Ielts 6.0",
+				"Ielts 7.0",
+				"N0",
+				"N1",
+				"N2",
+				"N3",
+				"N4",
+				"N5",
+				"Delf a1",
+				"Delf a2",
+				"Delf b1",
+				"Delf b2"
 		};
 		JComboBox cbbBangCapHS = new JComboBox(Bangcap);
 		cbbBangCapHS.setSelectedIndex(-1);
@@ -379,18 +380,21 @@ public class ListFileFrame extends JFrame {
 		tbDshs.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				new FileFrame((int) tbDshs.getModel().getValueAt(0, tbDshs.getSelectedColumn())).frameHS.setVisible(true);
+				
+				System.out.println(tbDshs.getValueAt(tbDshs.getSelectedRow(), tbDshs.getSelectedColumn()));
+				HO_SO hs = BLL_Timviec.Instance().GetHSbyIDHS((int)tbDshs.getModel().getValueAt(tbDshs.getSelectedRow(), tbDshs.getSelectedColumn()) );
+				new FileFrame(hs.getId()).frameHS.setVisible(true);
 			}
 		});
 		String ColsName[] = { "ID", "Họ Và Tên", "Số Điện Thoại", "Ngày Sinh", "Giới Tính", "Tỉnh/Thành phố" };
 		tableModel.setColumnIdentifiers(ColsName);
 		
 		String Loaitotnghiep[] = {
-//				"Gioi",
-//				"Kha",
-//				"Trung binh",
-//				"Yeu",
-//				"Kem"
+				"Gioi",
+				"Kha",
+				"Trung binh",
+				"Yeu",
+				"Kem"
 		};
 		JComboBox cbbLoaiTotNghiep = new JComboBox(Loaitotnghiep);
 		cbbLoaiTotNghiep.setSelectedIndex(-1);

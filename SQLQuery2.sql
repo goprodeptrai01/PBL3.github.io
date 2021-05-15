@@ -55,7 +55,7 @@ CREATE TABLE DIA_CHI
 )
 CREATE TABLE HO_SO
 (
-	Id INT PRIMARY KEY,
+	Id INT Identity PRIMARY KEY,
 	Fullname nvarchar(100) not null,
 	NgaySinh date not null,
 	GioiTinh BIT NOT NULL,
@@ -74,7 +74,7 @@ CREATE TABLE HO_SO
 	IdBC int not null,
 	IdNN_TH int not null,
 	IdKN INT NOT NULL,
-	FOREIGN KEY(IdKN) REFERENCES dbo.KI_NANG(Id),
+	FOREIGN KEY(IdKN) REFERENCES KI_NANG(Id),
 	Foreign key(IdBC) references BANG_CAP(Id),
 	Foreign key(IdNN_TH) references NN_TH(Id),
 	Foreign key(IdDC) references DIA_CHI(Id),
@@ -210,7 +210,6 @@ VALUES
 )
 INSERT INTO dbo.HO_SO
 (
-    Id,
     Fullname,
     NgaySinh,
     GioiTinh,
@@ -231,7 +230,7 @@ INSERT INTO dbo.HO_SO
     IdKN
 )
 VALUES
-(   1,         -- Id - int
+(
     N'Nguyen Thanh Sang',       -- Fullname - nvarchar(100)
     GETDATE(), -- NgaySinh - date
     1,      -- GioiTinh - bit

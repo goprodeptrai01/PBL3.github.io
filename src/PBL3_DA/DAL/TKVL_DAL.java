@@ -184,15 +184,13 @@ public class TKVL_DAL {
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
-
-			addBANG_CAP_DAL(bc);
-			addDIA_CHI_DAL(dc);
-			addKI_NANG_DAL(kn);
-			addNN_TH_DAL(nt);
-
+			int idbc = DBHelper.Instance().AddandGetIDBC(bc);
+			int iddc = DBHelper.Instance().AddandGetIDDC(dc);
+			int idnt = DBHelper.Instance().AddandGetIDNN_TH(nt);
+			int idkn = DBHelper.Instance().AddandGetIDKN(kn);
 			String query = "insert into HO_SO(Fullname,NgaySinh,GioiTinh,KinhNghiem,ViTriHienTai,ViTriMongMuon,"
 					+ "MucLuongMongMuon,NoiLamViec,MucTieuCV,TenCongTyDangLam,ThoiGianBatDauLam,ThoiGianKetThucLam,"
-					+ "MucLuong,MoTaCV,id_DC,id_BC,idNN_TH,id_KN) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+					+ "MucLuong,MoTaCV,IdDC,IdBC,IdNN_TH,IdKN) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			statement = connection.prepareCall(query);
 			statement.setString(1, hs.getFullname());
 			statement.setDate(2, hs.getNgaySinh());
@@ -208,10 +206,18 @@ public class TKVL_DAL {
 			statement.setDate(12, hs.getThoiGianKetThucLam());
 			statement.setInt(13, hs.getMucLuong());
 			statement.setString(14, hs.getMoTaCV());
-			statement.setInt(15, dc.getId());
-			statement.setInt(16, bc.getId());
-			statement.setInt(17, nt.getId());
-			statement.setInt(18, kn.getId());
+
+			System.out.println("IDDC = " + iddc);
+			statement.setInt(15, iddc);
+
+			System.out.println("IDBC = " + idbc);
+			statement.setInt(16, idbc);
+
+			System.out.println("IDNT = " + idnt);
+			statement.setInt(17, idnt);
+
+			System.out.println("IDKN = " + idkn);
+			statement.setInt(18, idkn);
 
 			statement.execute();
 
@@ -221,7 +227,7 @@ public class TKVL_DAL {
 
 		} catch (Exception e) {
 			// TODO: handle exception
-			System.out.println("Error " + e);
+			System.out.println("Error 1" + e);
 		}
 	}
 
@@ -243,10 +249,11 @@ public class TKVL_DAL {
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error " + e);
+			return;
 		}
 	}
 
-	public void addDIA_CHI_DAL(DIA_CHI dc) {
+	public int addDIA_CHI_DAL(DIA_CHI dc) {
 		PreparedStatement statement = null;
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
@@ -257,13 +264,18 @@ public class TKVL_DAL {
 			statement.setString(1, dc.getTinh());
 			statement.setString(2, dc.getDiaChiChiTiet());
 			statement.execute();
+
+			String execute = "SELECT TOP 1 Id from DIA_CHI ORDER BY Id Desc";
+			ResultSet resultSet = DBHelper.Instance().getResultSet(execute);
+			return resultSet.getInt("Id");
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error " + e);
+			return 0;
 		}
 	}
 
-	public void addKI_NANG_DAL(KI_NANG kn) {
+	public int addKI_NANG_DAL(KI_NANG kn) {
 		PreparedStatement statement = null;
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
@@ -283,13 +295,18 @@ public class TKVL_DAL {
 			statement.setString(10, kn.getSoThich());
 			statement.setString(11, kn.getKyNangKhac());
 			statement.execute();
+			String execute = "SELECT TOP 1 Id from KI_NANG ORDER BY Id Desc";
+			ResultSet resultSet = DBHelper.Instance().getResultSet(execute);
+			return resultSet.getInt("Id");
+//			query = "select Id from KI_NANG";
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error " + e);
+			return 0;
 		}
 	}
 
-	public void addNN_TH_DAL(NN_TH nt) {
+	public int addNN_TH_DAL(NN_TH nt) {
 		PreparedStatement statement = null;
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
@@ -306,9 +323,14 @@ public class TKVL_DAL {
 			statement.setBoolean(7, nt.isOutLook());
 			statement.setString(8, nt.getPhanMemKhac());
 			statement.execute();
+
+			String execute = "SELECT TOP 1 Id from NN_TH ORDER BY Id Desc";
+			ResultSet resultSet = DBHelper.Instance().getResultSet(execute);
+			return resultSet.getInt("Id");
 		} catch (Exception e) {
 			// TODO: handle exception
 			System.out.println("Error " + e);
+			return 0;
 		}
 	}
 
@@ -318,10 +340,17 @@ public class TKVL_DAL {
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
-
+			System.out.println("IDBC = " + hs.getId_BC());
+			bc.setId(hs.getId_BC());
 			editBANG_CAP_DAL(bc);
+
+			dc.setId(hs.getId_DC());
 			editDIA_CHI_DAL(dc);
+
+			kn.setId(hs.getId_KN());
 			editKI_NANG_DAL(kn);
+
+			nt.setId(hs.getIdNN_TH());
 			editNN_TH_DAL(nt);
 
 			String query = "update HO_SO set Fullname=?,NgaySinh=?,GioiTinh=?,KinhNghiem=?,ViTriHienTai=?,ViTriMongMuon=?,MucLuongMongMuon=?,NoiLamViec=?,MucTieuCV=?,"
@@ -361,7 +390,7 @@ public class TKVL_DAL {
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
-
+//			bc.setId(DBHelper.Instance().getIDBC(bc));
 			String query = "update BANG_CAP set TrinhDo=?,DonViDaoTao=?,ThoiGianBatDau=?,ThoiGianKetThuc=?,ChuyenNganh=?,LoaiTotNghiep=? where id=?";
 			statement = connection.prepareCall(query);
 			statement.setString(1, bc.getTrinhDo());
@@ -451,17 +480,17 @@ public class TKVL_DAL {
 		}
 	}
 
-	public void delHO_SO_DAL(HO_SO hs) {
+	public void delHO_SO_DAL(int iDHS) {
 		connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam;", "sa",
 					"sa");
 
-			String query = "delete from HO_SO where id=@id";
+			String query = "delete from HO_SO where id=?";
 			statement = connection.prepareCall(query);
 
-			statement.setInt(1, hs.getId());
+			statement.setInt(1, iDHS);
 
 			statement.execute();
 		} catch (Exception e) {
