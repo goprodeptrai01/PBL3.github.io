@@ -6,6 +6,7 @@ import PBL3_DA.DTO.BANG_CAP;
 import PBL3_DA.DTO.DIA_CHI;
 import PBL3_DA.DTO.KI_NANG;
 import PBL3_DA.DTO.NN_TH;
+import PBL3_DA.DTO.TAI_KHOAN;
 
 public class DBHelper {
 	private Connection connection;
@@ -44,7 +45,7 @@ public class DBHelper {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam;", "sa",
 					"sa");
 			if (connection != null)
-				System.out.println("successful");
+//				System.out.println("successful");
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(query);
 		} catch (Exception e) {
@@ -64,6 +65,44 @@ public class DBHelper {
 		return resultSet;
 	}
 
+	public int AddandGetIDTK(TAI_KHOAN tk) {
+		DBHelper testcnn = new DBHelper();
+		try {
+			PreparedStatement statement = null;
+			Connection connection = DriverManager
+					.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa", "sa");
+
+			String query = "insert into TAI_KHOAN(Email,Pass,Username,Sdt,Type) values (?,?,?,?,?) ";
+			statement = connection.prepareCall(query);
+			statement.setString(1, "abc@gmail.com");
+			statement.setString(2, "12345678");
+			statement.setString(3, "asdfgh");
+			statement.setInt(4, tk.getSdt());
+			statement.setInt(5, tk.getType());
+			statement.execute();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error insert " + e);
+		}
+		try {
+			ResultSet resultSet = testcnn.getResultSet("SELECT TOP 1 Id from TAI_KHOAN ORDER BY Id Desc");
+			ResultSetMetaData rsmd = resultSet.getMetaData();
+			int socot = rsmd.getColumnCount();
+			while (resultSet.next()) {
+				for (int i = 1; i <= socot; i++) {
+					tk.setId(resultSet.getInt(i));
+				}
+				System.out.println("\n");
+			}
+			return tk.getId();
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Error get " + e);
+			return 0;
+		}
+
+	}
+	
 	public int AddandGetIDBC(BANG_CAP bc) {
 		DBHelper testcnn = new DBHelper();
 		try {

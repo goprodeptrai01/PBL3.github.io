@@ -1,6 +1,6 @@
 package PBL3_DA.GUI;
 
-import java.awt.EventQueue; 
+import java.awt.EventQueue;
 import java.util.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -31,22 +31,17 @@ import PBL3_DA.DTO.NN_TH;
 import PBL3_DA.DTO.TAI_KHOAN;
 
 @SuppressWarnings("serial")
-public class FileFrame extends JFrame{
-	public static String city[] = { 
-									 "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu",
-									 "Bắc Ninh", "Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận",
-									 "Cà Mau", "Cao Bằng", "Cần Thơ", "Đà Nẵng", "Đắk Lắk", "Đắk Nông",
-									 "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam",
-									 "Hà Nội", "Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hậu Giang", "Hòa Bình",
-									 "Hưng Yên", "Khánh Hòa", "Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng",
-									 "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An", "Ninh Bình",
-									 "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi",
-									 "Quảng Ninh", "Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình",
-									 "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế", "Tiền Giang", "Trà Vinh",
-									 "Tuyên Quang", "TP Hồ Chí Minh", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái"
-									 };
+public class FileFrame extends JFrame {
+	public static String city[] = { "An Giang", "Bà Rịa - Vũng Tàu", "Bắc Giang", "Bắc Kạn", "Bạc Liêu", "Bắc Ninh",
+			"Bến Tre", "Bình Định", "Bình Dương", "Bình Phước", "Bình Thuận", "Cà Mau", "Cao Bằng", "Cần Thơ",
+			"Đà Nẵng", "Đắk Lắk", "Đắk Nông", "Điện Biên", "Đồng Nai", "Đồng Tháp", "Gia Lai", "Hà Giang", "Hà Nam",
+			"Hà Nội", "Hà Tĩnh", "Hải Dương", "Hải Phòng", "Hậu Giang", "Hòa Bình", "Hưng Yên", "Khánh Hòa",
+			"Kiên Giang", "Kon Tum", "Lai Châu", "Lâm Đồng", "Lạng Sơn", "Lào Cai", "Long An", "Nam Định", "Nghệ An",
+			"Ninh Bình", "Ninh Thuận", "Phú Thọ", "Phú Yên", "Quảng Bình", "Quảng Nam", "Quảng Ngãi", "Quảng Ninh",
+			"Quảng Trị", "Sóc Trăng", "Sơn La", "Tây Ninh", "Thái Bình", "Thái Nguyên", "Thanh Hóa", "Thừa Thiên Huế",
+			"Tiền Giang", "Trà Vinh", "Tuyên Quang", "TP Hồ Chí Minh", "Vĩnh Long", "Vĩnh Phúc", "Yên Bái" };
 	public JFrame frameHS;
-	
+
 	public JFrame getFrameHS() {
 		return frameHS;
 	}
@@ -217,7 +212,7 @@ public class FileFrame extends JFrame{
 		btnLuu_panel1.setBackground(new Color(220, 20, 60));
 		btnLuu_panel1.setBounds(145, 389, 89, 35);
 		panel_1.add(btnLuu_panel1);
-		
+
 		JButton btnXoa = new JButton("Xoá");
 		btnXoa.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -273,22 +268,13 @@ public class FileFrame extends JFrame{
 		lb6_panel2.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lb6_panel2.setBounds(10, 330, 140, 25);
 		panel_2.add(lb6_panel2);
-		
-		String exp[] = {
-				"1 thang","3 thang","6 thang",
-				"1 nam","2 nam","4 nam","8 nam"
-		};
+
+		String exp[] = { "1 thang", "3 thang", "6 thang", "1 nam", "2 nam", "4 nam", "8 nam" };
 		JComboBox cbbKinhnghiem = new JComboBox(exp);
 		cbbKinhnghiem.setBounds(160, 82, 250, 22);
 		panel_2.add(cbbKinhnghiem);
 
-		String role[] = {
-				"Nhân viên",
-				"Cộng tác viên",
-				"Trưởng nhóm/Trưởng phòng",
-				"Chuyên gia",
-				"Quản lý cấp cao",
-		};
+		String role[] = { "Nhân viên", "Cộng tác viên", "Trưởng nhóm/Trưởng phòng", "Chuyên gia", "Quản lý cấp cao", };
 		JComboBox cbbVitrihientai = new JComboBox(role);
 		cbbVitrihientai.setBounds(160, 132, 250, 22);
 		panel_2.add(cbbVitrihientai);
@@ -363,15 +349,15 @@ public class FileFrame extends JFrame{
 		JLabel lb6_panel3 = new JLabel("T\u1EEB");
 		lb6_panel3.setBounds(145, 186, 22, 14);
 		panel_3.add(lb6_panel3);
-		
+
 		JDateChooser datechooserTu_panel3 = new JDateChooser();
 		datechooserTu_panel3.setBounds(165, 180, 95, 25);
 		panel_3.add(datechooserTu_panel3);
-		
+
 		JLabel lb7_panel3 = new JLabel("\u0110\u1EBFn");
 		lb7_panel3.setBounds(271, 186, 25, 14);
 		panel_3.add(lb7_panel3);
-		
+
 		JDateChooser datechooserDen_panel3 = new JDateChooser();
 		datechooserDen_panel3.setBounds(300, 180, 95, 25);
 		panel_3.add(datechooserDen_panel3);
@@ -388,10 +374,7 @@ public class FileFrame extends JFrame{
 		JTextArea txtareaMotaCV = new JTextArea();
 		scrollPane_panel3.setViewportView(txtareaMotaCV);
 
-		String dvi[] = {
-				"VND",
-				"$",
-		};
+		String dvi[] = { "VND", "$", };
 		JComboBox cbbDonvitien = new JComboBox(dvi);
 		cbbDonvitien.setBounds(145, 232, 68, 22);
 		panel_3.add(cbbDonvitien);
@@ -481,7 +464,7 @@ public class FileFrame extends JFrame{
 		JLabel lb6_panel4 = new JLabel("T\u1EEB");
 		lb6_panel4.setBounds(145, 186, 22, 14);
 		panel_4.add(lb6_panel4);
-		
+
 		JDateChooser datechooserTu_panel4 = new JDateChooser();
 		datechooserTu_panel4.setBounds(165, 180, 95, 25);
 		panel_4.add(datechooserTu_panel4);
@@ -489,7 +472,7 @@ public class FileFrame extends JFrame{
 		JLabel lb7_panel4 = new JLabel("\u0110\u1EBFn");
 		lb7_panel4.setBounds(271, 186, 25, 14);
 		panel_4.add(lb7_panel4);
-		
+
 		JDateChooser datechooserDen_panel4 = new JDateChooser();
 		datechooserDen_panel4.setBounds(300, 180, 95, 25);
 		panel_4.add(datechooserDen_panel4);
@@ -499,13 +482,8 @@ public class FileFrame extends JFrame{
 		txtChuyennganh.setBorder(null);
 		txtChuyennganh.setBounds(145, 233, 250, 20);
 		panel_4.add(txtChuyennganh);
-		
-		String Loaitotnghiep[] = {
-				"Gioi",
-				"Kha",
-				"Trung Binh",
-				"Yeu"
-		};
+
+		String Loaitotnghiep[] = { "Gioi", "Kha", "Trung Binh", "Yeu" };
 		JComboBox cbbLoaitotnghiep = new JComboBox(Loaitotnghiep);
 		cbbLoaitotnghiep.setBounds(145, 282, 250, 22);
 		panel_4.add(cbbLoaitotnghiep);
@@ -544,23 +522,9 @@ public class FileFrame extends JFrame{
 		lb4_panel5.setFont(new Font("Tahoma", Font.BOLD, 12));
 		lb4_panel5.setBounds(10, 180, 100, 25);
 		panel_5.add(lb4_panel5);
-		
-		String Bangcap[] = {
-				"Toeic 650",
-				"Toeic 525",
-				"Ielts 6.0",
-				"Ielts 7.0",
-				"N0",
-				"N1",
-				"N2",
-				"N3",
-				"N4",
-				"N5",
-				"Delf a1",
-				"Delf a2",
-				"Delf b1",
-				"Delf b2"
-		};
+
+		String Bangcap[] = { "Toeic 650", "Toeic 525", "Ielts 6.0", "Ielts 7.0", "N0", "N1", "N2", "N3", "N4", "N5",
+				"Delf a1", "Delf a2", "Delf b1", "Delf b2" };
 		JComboBox cbbBangcap = new JComboBox(Bangcap);
 		cbbBangcap.setBounds(145, 182, 250, 22);
 		panel_5.add(cbbBangcap);
@@ -608,23 +572,12 @@ public class FileFrame extends JFrame{
 		chckbxMsOutlook.setBounds(160, 312, 120, 23);
 		panel_5.add(chckbxMsOutlook);
 
-		String Ngoaingu[] = {
-				"Anh",
-				"Nhat",
-				"Phap",
-				"Y"
-		};
+		String Ngoaingu[] = { "Anh", "Nhat", "Phap", "Y" };
 		JComboBox cbbNgoaingu = new JComboBox(Ngoaingu);
 		cbbNgoaingu.setBounds(145, 82, 250, 22);
 		panel_5.add(cbbNgoaingu);
-		
-		String Trinhdo[] = {
-				"Gioi",
-				"Kha",
-				"Trung binh",
-				"Yeu",
-				"Kem"
-		};
+
+		String Trinhdo[] = { "Gioi", "Kha", "Trung binh", "Yeu", "Kem" };
 		JComboBox cbbTrinhdo = new JComboBox(Trinhdo);
 		cbbTrinhdo.setBounds(145, 132, 250, 22);
 		panel_5.add(cbbTrinhdo);
@@ -713,14 +666,14 @@ public class FileFrame extends JFrame{
 
 		JTextArea txtareaKynang = new JTextArea();
 		scrollPane1_panel6.setViewportView(txtareaKynang);
-		
+
 		panel_1.setVisible(true);
 		panel_2.setVisible(false);
 		panel_3.setVisible(false);
 		panel_4.setVisible(false);
 		panel_5.setVisible(false);
 		panel_6.setVisible(false);
-		
+
 		if (IDHS == 0) {
 			btnXoa.setEnabled(false);
 			btnXoa.setVisible(false);
@@ -755,7 +708,8 @@ public class FileFrame extends JFrame{
 			datechooserTu_panel3.setDate(date);
 			datechooserDen_panel3.setDate(date);
 			datechooserTu_panel4.setDate(date);
-			datechooserDen_panel4.setDate(date);;
+			datechooserDen_panel4.setDate(date);
+			;
 			cbbDonvitien.setSelectedIndex(-1);
 			cbbLoaitotnghiep.setSelectedIndex(-1);
 			cbbNgoaingu.setSelectedIndex(-1);
@@ -787,7 +741,7 @@ public class FileFrame extends JFrame{
 			txtareaKynang.setText(kn.getKyNangKhac());
 			Date date = new java.sql.Date(hs.getNgaySinh().getTime());
 			datechooserNS.setDate(date);
-			
+
 			cbbThanhpho.setSelectedItem(dc.getTinh());
 			cbbKinhnghiem.setSelectedItem(hs.getKinhNghiem());
 			cbbVitrihientai.setSelectedItem(hs.getViTriHienTai());
@@ -802,15 +756,15 @@ public class FileFrame extends JFrame{
 			cbbLoaitotnghiep.setSelectedItem(bc.getLoaiTotNghiep());
 			cbbNgoaingu.setSelectedItem(nt.getLoaiNgonNgu());
 			cbbTrinhdo.setSelectedItem(nt.getTrinhDo());
-			//asd
+			// asd
 			cbbBangcap.setSelectedItem(nt.getBangCap());
-			if(hs.getGioiTinh() == true) {
+			if (hs.getGioiTinh() == true) {
 				rdbtn_male.isSelected();
 			} else {
 				rdbtn_female.isSelected();
 			}
 		}
-		
+
 		JButton btnThongtinTaikhoan = new JButton("Th\u00F4ng tin t\u00E0i kho\u1EA3n");
 		btnThongtinTaikhoan.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -918,8 +872,14 @@ public class FileFrame extends JFrame{
 		btnKynangcanhan.setBackground(new Color(30, 144, 255));
 		btnKynangcanhan.setBounds(0, 380, 180, 76);
 		panel.add(btnKynangcanhan);
-
-		btnLuu_panel1.addActionListener(new ActionListener() { 
+		
+		panel_2.add(btnXoa);
+		panel_3.add(btnXoa);
+		panel_4.add(btnXoa);
+		panel_5.add(btnXoa);
+		panel_6.add(btnXoa);
+		
+		btnLuu_panel1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				boolean check = false;
 				HO_SO hs;
@@ -935,10 +895,9 @@ public class FileFrame extends JFrame{
 					} else {
 						check = false;
 					}
-					if(IDHS == 0) {
+					if (IDHS == 0) {
 						hs = new HO_SO();
-					}
-					else {
+					} else {
 						hs = BLL_Timviec.Instance().GetHSbyIDHS(IDHS);
 					}
 
@@ -950,8 +909,8 @@ public class FileFrame extends JFrame{
 					hs.setNgaySinh(new java.sql.Date(datechooserNS.getDate().getTime()));
 					if (rdbtn_male.isSelected()) {
 						hs.setGioiTinh(true);
-					} 
-					if(rdbtn_female.isSelected()) {
+					}
+					if (rdbtn_female.isSelected()) {
 						hs.setGioiTinh(false);
 					}
 					DIA_CHI dc = new DIA_CHI();
@@ -970,9 +929,9 @@ public class FileFrame extends JFrame{
 					hs.setNoiLamViec((String) cbbNoilamviec_panel3.getSelectedItem());
 					hs.setThoiGianBatDauLam(new java.sql.Date(datechooserTu_panel3.getDate().getTime()));
 					hs.setThoiGianKetThucLam(new java.sql.Date(datechooserDen_panel3.getDate().getTime()));
-						if(cbbDonvitien.getSelectedIndex() == 0) {
-							hs.setMucLuong(Integer.parseInt(txtSotien.getText())*23061);
-						}
+					if (cbbDonvitien.getSelectedIndex() == 0) {
+						hs.setMucLuong(Integer.parseInt(txtSotien.getText()) * 23061);
+					}
 					hs.setMoTaCV(txtareaMotaCV.getText());
 					// panel4 Trinh do va bang cap
 					BANG_CAP bc = new BANG_CAP();
@@ -1063,6 +1022,766 @@ public class FileFrame extends JFrame{
 					kn.setId(hs.getId_KN());
 					BLL_Timviec.Instance().ExecuteDB(hs, bc, dc, kn, nt, tk);
 //						System.exit(0);
+
+				} while (check == true);
+				frameHS.dispose();
+			}
+		});
+
+		btnLuu_panel2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				boolean check = false;
+				HO_SO hs;
+				do {
+					if (cbbNgoaingu.getSelectedIndex() == -1 || cbbTrinhdo.getSelectedIndex() == -1
+							|| cbbBangcap.getSelectedIndex() == -1 || txtHoten.getText() == null
+							|| datechooserNS == null || cbbKinhnghiem.getSelectedIndex() == -1
+							|| cbbVitrihientai.getSelectedIndex() == -1 || cbbVitrimongmuon.getSelectedIndex() == -1
+							|| cbbNoilamviec.getSelectedIndex() == -1) {
+						System.out.println("nhap lai");
+						check = true;
+						break;
+					} else {
+						check = false;
+					}
+					if (IDHS == 0) {
+						hs = new HO_SO();
+					} else {
+						hs = BLL_Timviec.Instance().GetHSbyIDHS(IDHS);
+					}
+
+					// panel1 thong tin tai khoan
+					hs.setFullname(txtHoten.getText());
+					TAI_KHOAN tk = new TAI_KHOAN();
+					tk.setSdt(Integer.parseInt(txtSdt.getText()));
+					tk.setId(hs.getId());
+					hs.setNgaySinh(new java.sql.Date(datechooserNS.getDate().getTime()));
+					if (rdbtn_male.isSelected()) {
+						hs.setGioiTinh(true);
+					}
+					if (rdbtn_female.isSelected()) {
+						hs.setGioiTinh(false);
+					}
+					DIA_CHI dc = new DIA_CHI();
+					dc.setTinh((String) cbbThanhpho.getSelectedItem());
+					dc.setDiaChiChiTiet(txtDiachi.getText());
+					dc.setId(hs.getId_DC());
+					// panel2 thong tin chung
+					hs.setKinhNghiem((String) cbbKinhnghiem.getSelectedItem());
+					hs.setViTriHienTai((String) cbbVitrihientai.getSelectedItem());
+					hs.setViTriMongMuon((String) cbbVitrimongmuon.getSelectedItem());
+					hs.setMucLuongMongMuon(Integer.parseInt(txtMucluong.getText()));
+					hs.setNoiLamViec((String) cbbNoilamviec.getSelectedItem());
+					hs.setMucTieuCV(txareaMuctieu.getText());
+					// panel3 kinh nghiem
+					hs.setTenCongTyDangLam(txtDoanhnghiep.getText());
+					hs.setNoiLamViec((String) cbbNoilamviec_panel3.getSelectedItem());
+					hs.setThoiGianBatDauLam(new java.sql.Date(datechooserTu_panel3.getDate().getTime()));
+					hs.setThoiGianKetThucLam(new java.sql.Date(datechooserDen_panel3.getDate().getTime()));
+					if (cbbDonvitien.getSelectedIndex() == 0) {
+						hs.setMucLuong(Integer.parseInt(txtSotien.getText()) * 23061);
+					}
+					hs.setMoTaCV(txtareaMotaCV.getText());
+					// panel4 Trinh do va bang cap
+					BANG_CAP bc = new BANG_CAP();
+					bc.setTrinhDo(txtTrinhdo.getText());
+					bc.setDonViDaoTao(txtDonvidaotao.getText());
+					bc.setThoiGianBatDau(new java.sql.Date(datechooserTu_panel4.getDate().getTime()));
+					bc.setThoiGianKetThuc(new java.sql.Date(datechooserDen_panel4.getDate().getTime()));
+					bc.setLoaiTotNghiep((String) cbbLoaitotnghiep.getSelectedItem());
+					bc.setChuyenNganh(txtChuyennganh.getText());
+					bc.setId(hs.getId_BC());
+					// panel5 Ngoai ngu va tin hoc
+					NN_TH nt = new NN_TH();
+					nt.setTrinhDo((String) cbbTrinhdo.getSelectedItem());
+					nt.setLoaiNgonNgu((String) cbbNgoaingu.getSelectedItem());
+					nt.setBangCap((String) cbbBangcap.getSelectedItem());
+					if (chckboxMsWord.isSelected()) {
+						nt.setWord(true);
+					} else {
+						nt.setWord(false);
+					}
+					if (chckbxMsExcel.isSelected()) {
+						nt.setExcel(true);
+					} else {
+						nt.setExcel(false);
+					}
+
+					if (chckbxMsOutlook.isSelected()) {
+						nt.setOutLook(true);
+					} else {
+						nt.setOutLook(false);
+					}
+					if (chckbxMsPowerPoint.isSelected()) {
+						nt.setPowerPoint(true);
+					} else {
+						nt.setPowerPoint(false);
+					}
+					nt.setPhanMemKhac(txtareaPhanmemkhac.getText());
+					nt.setId(hs.getIdNN_TH());
+					// panel6 Ky nang ca nhan
+					KI_NANG kn = new KI_NANG();
+					if (chckbxGiaotiep.isSelected()) {
+						kn.setGiaoTiep(true);
+					} else {
+						kn.setGiaoTiep(false);
+					}
+					if (chckbxGiaiquyetvande.isSelected()) {
+						kn.setGiaiQuyetVD(true);
+					} else {
+						kn.setGiaiQuyetVD(false);
+					}
+					if (chckbxLanhdao.isSelected()) {
+						kn.setLanhDao(true);
+					} else {
+						kn.setLanhDao(false);
+					}
+					if (chckbxLamviecnhom.isSelected()) {
+						kn.setLamViecNhom(true);
+					} else {
+						kn.setLamViecNhom(false);
+					}
+					if (chckbxChienluoc.isSelected()) {
+						kn.setRaChienLuoc(true);
+					} else {
+						kn.setRaChienLuoc(false);
+					}
+					if (chckbxQuanlynhanluc.isSelected()) {
+						kn.setQuanLyNhanLuc(true);
+					} else {
+						kn.setQuanLyNhanLuc(false);
+					}
+					if (chckbxQuanlyduan.isSelected()) {
+						kn.setQuanLyDuAn(true);
+					} else {
+						kn.setQuanLyDuAn(false);
+					}
+					if (chckbxQuanlythoigian.isSelected()) {
+						kn.setQuanLyThoiGian(true);
+					} else {
+						kn.setQuanLyThoiGian(false);
+					}
+					if (chckbxSangtao.isSelected()) {
+						kn.setSangTao(true);
+					} else {
+						kn.setSangTao(false);
+					}
+					kn.setSoThich(txtareaSothich.getText());
+					kn.setKyNangKhac(txtareaKynang.getText());
+					kn.setId(hs.getId_KN());
+					BLL_Timviec.Instance().ExecuteDB(hs, bc, dc, kn, nt, tk);
+//						System.exit(0);
+
+				} while (check == true);
+				frameHS.dispose();
+			}
+		});
+
+		btnLuu_panel3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				boolean check = false;
+				HO_SO hs;
+				do {
+					if (cbbNgoaingu.getSelectedIndex() == -1 || cbbTrinhdo.getSelectedIndex() == -1
+							|| cbbBangcap.getSelectedIndex() == -1 || txtHoten.getText() == null
+							|| datechooserNS == null || cbbKinhnghiem.getSelectedIndex() == -1
+							|| cbbVitrihientai.getSelectedIndex() == -1 || cbbVitrimongmuon.getSelectedIndex() == -1
+							|| cbbNoilamviec.getSelectedIndex() == -1) {
+						System.out.println("nhap lai");
+						check = true;
+						break;
+					} else {
+						check = false;
+					}
+					if (IDHS == 0) {
+						hs = new HO_SO();
+					} else {
+						hs = BLL_Timviec.Instance().GetHSbyIDHS(IDHS);
+					}
+
+					// panel1 thong tin tai khoan
+					hs.setFullname(txtHoten.getText());
+					TAI_KHOAN tk = new TAI_KHOAN();
+					tk.setSdt(Integer.parseInt(txtSdt.getText()));
+					tk.setId(hs.getId());
+					hs.setNgaySinh(new java.sql.Date(datechooserNS.getDate().getTime()));
+					if (rdbtn_male.isSelected()) {
+						hs.setGioiTinh(true);
+					}
+					if (rdbtn_female.isSelected()) {
+						hs.setGioiTinh(false);
+					}
+					DIA_CHI dc = new DIA_CHI();
+					dc.setTinh((String) cbbThanhpho.getSelectedItem());
+					dc.setDiaChiChiTiet(txtDiachi.getText());
+					dc.setId(hs.getId_DC());
+					// panel2 thong tin chung
+					hs.setKinhNghiem((String) cbbKinhnghiem.getSelectedItem());
+					hs.setViTriHienTai((String) cbbVitrihientai.getSelectedItem());
+					hs.setViTriMongMuon((String) cbbVitrimongmuon.getSelectedItem());
+					hs.setMucLuongMongMuon(Integer.parseInt(txtMucluong.getText()));
+					hs.setNoiLamViec((String) cbbNoilamviec.getSelectedItem());
+					hs.setMucTieuCV(txareaMuctieu.getText());
+					// panel3 kinh nghiem
+					hs.setTenCongTyDangLam(txtDoanhnghiep.getText());
+					hs.setNoiLamViec((String) cbbNoilamviec_panel3.getSelectedItem());
+					hs.setThoiGianBatDauLam(new java.sql.Date(datechooserTu_panel3.getDate().getTime()));
+					hs.setThoiGianKetThucLam(new java.sql.Date(datechooserDen_panel3.getDate().getTime()));
+					if (cbbDonvitien.getSelectedIndex() == 0) {
+						hs.setMucLuong(Integer.parseInt(txtSotien.getText()) * 23061);
+					}
+					hs.setMoTaCV(txtareaMotaCV.getText());
+					// panel4 Trinh do va bang cap
+					BANG_CAP bc = new BANG_CAP();
+					bc.setTrinhDo(txtTrinhdo.getText());
+					bc.setDonViDaoTao(txtDonvidaotao.getText());
+					bc.setThoiGianBatDau(new java.sql.Date(datechooserTu_panel4.getDate().getTime()));
+					bc.setThoiGianKetThuc(new java.sql.Date(datechooserDen_panel4.getDate().getTime()));
+					bc.setLoaiTotNghiep((String) cbbLoaitotnghiep.getSelectedItem());
+					bc.setChuyenNganh(txtChuyennganh.getText());
+					bc.setId(hs.getId_BC());
+					// panel5 Ngoai ngu va tin hoc
+					NN_TH nt = new NN_TH();
+					nt.setTrinhDo((String) cbbTrinhdo.getSelectedItem());
+					nt.setLoaiNgonNgu((String) cbbNgoaingu.getSelectedItem());
+					nt.setBangCap((String) cbbBangcap.getSelectedItem());
+					if (chckboxMsWord.isSelected()) {
+						nt.setWord(true);
+					} else {
+						nt.setWord(false);
+					}
+					if (chckbxMsExcel.isSelected()) {
+						nt.setExcel(true);
+					} else {
+						nt.setExcel(false);
+					}
+
+					if (chckbxMsOutlook.isSelected()) {
+						nt.setOutLook(true);
+					} else {
+						nt.setOutLook(false);
+					}
+					if (chckbxMsPowerPoint.isSelected()) {
+						nt.setPowerPoint(true);
+					} else {
+						nt.setPowerPoint(false);
+					}
+					nt.setPhanMemKhac(txtareaPhanmemkhac.getText());
+					nt.setId(hs.getIdNN_TH());
+					// panel6 Ky nang ca nhan
+					KI_NANG kn = new KI_NANG();
+					if (chckbxGiaotiep.isSelected()) {
+						kn.setGiaoTiep(true);
+					} else {
+						kn.setGiaoTiep(false);
+					}
+					if (chckbxGiaiquyetvande.isSelected()) {
+						kn.setGiaiQuyetVD(true);
+					} else {
+						kn.setGiaiQuyetVD(false);
+					}
+					if (chckbxLanhdao.isSelected()) {
+						kn.setLanhDao(true);
+					} else {
+						kn.setLanhDao(false);
+					}
+					if (chckbxLamviecnhom.isSelected()) {
+						kn.setLamViecNhom(true);
+					} else {
+						kn.setLamViecNhom(false);
+					}
+					if (chckbxChienluoc.isSelected()) {
+						kn.setRaChienLuoc(true);
+					} else {
+						kn.setRaChienLuoc(false);
+					}
+					if (chckbxQuanlynhanluc.isSelected()) {
+						kn.setQuanLyNhanLuc(true);
+					} else {
+						kn.setQuanLyNhanLuc(false);
+					}
+					if (chckbxQuanlyduan.isSelected()) {
+						kn.setQuanLyDuAn(true);
+					} else {
+						kn.setQuanLyDuAn(false);
+					}
+					if (chckbxQuanlythoigian.isSelected()) {
+						kn.setQuanLyThoiGian(true);
+					} else {
+						kn.setQuanLyThoiGian(false);
+					}
+					if (chckbxSangtao.isSelected()) {
+						kn.setSangTao(true);
+					} else {
+						kn.setSangTao(false);
+					}
+					kn.setSoThich(txtareaSothich.getText());
+					kn.setKyNangKhac(txtareaKynang.getText());
+					kn.setId(hs.getId_KN());
+					BLL_Timviec.Instance().ExecuteDB(hs, bc, dc, kn, nt, tk);
+//						System.exit(0);
+
+				} while (check == true);
+				frameHS.dispose();
+			}
+		});
+
+		btnLuu_panel4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				boolean check = false;
+				HO_SO hs;
+				do {
+					if (cbbNgoaingu.getSelectedIndex() == -1 || cbbTrinhdo.getSelectedIndex() == -1
+							|| cbbBangcap.getSelectedIndex() == -1 || txtHoten.getText() == null
+							|| datechooserNS == null || cbbKinhnghiem.getSelectedIndex() == -1
+							|| cbbVitrihientai.getSelectedIndex() == -1 || cbbVitrimongmuon.getSelectedIndex() == -1
+							|| cbbNoilamviec.getSelectedIndex() == -1) {
+						System.out.println("nhap lai");
+						check = true;
+						break;
+					} else {
+						check = false;
+					}
+					if (IDHS == 0) {
+						hs = new HO_SO();
+					} else {
+						hs = BLL_Timviec.Instance().GetHSbyIDHS(IDHS);
+					}
+
+					// panel1 thong tin tai khoan
+					hs.setFullname(txtHoten.getText());
+					TAI_KHOAN tk = new TAI_KHOAN();
+					tk.setSdt(Integer.parseInt(txtSdt.getText()));
+					tk.setId(hs.getId());
+					hs.setNgaySinh(new java.sql.Date(datechooserNS.getDate().getTime()));
+					if (rdbtn_male.isSelected()) {
+						hs.setGioiTinh(true);
+					}
+					if (rdbtn_female.isSelected()) {
+						hs.setGioiTinh(false);
+					}
+					DIA_CHI dc = new DIA_CHI();
+					dc.setTinh((String) cbbThanhpho.getSelectedItem());
+					dc.setDiaChiChiTiet(txtDiachi.getText());
+					dc.setId(hs.getId_DC());
+					// panel2 thong tin chung
+					hs.setKinhNghiem((String) cbbKinhnghiem.getSelectedItem());
+					hs.setViTriHienTai((String) cbbVitrihientai.getSelectedItem());
+					hs.setViTriMongMuon((String) cbbVitrimongmuon.getSelectedItem());
+					hs.setMucLuongMongMuon(Integer.parseInt(txtMucluong.getText()));
+					hs.setNoiLamViec((String) cbbNoilamviec.getSelectedItem());
+					hs.setMucTieuCV(txareaMuctieu.getText());
+					// panel3 kinh nghiem
+					hs.setTenCongTyDangLam(txtDoanhnghiep.getText());
+					hs.setNoiLamViec((String) cbbNoilamviec_panel3.getSelectedItem());
+					hs.setThoiGianBatDauLam(new java.sql.Date(datechooserTu_panel3.getDate().getTime()));
+					hs.setThoiGianKetThucLam(new java.sql.Date(datechooserDen_panel3.getDate().getTime()));
+					if (cbbDonvitien.getSelectedIndex() == 0) {
+						hs.setMucLuong(Integer.parseInt(txtSotien.getText()) * 23061);
+					}
+					hs.setMoTaCV(txtareaMotaCV.getText());
+					// panel4 Trinh do va bang cap
+					BANG_CAP bc = new BANG_CAP();
+					bc.setTrinhDo(txtTrinhdo.getText());
+					bc.setDonViDaoTao(txtDonvidaotao.getText());
+					bc.setThoiGianBatDau(new java.sql.Date(datechooserTu_panel4.getDate().getTime()));
+					bc.setThoiGianKetThuc(new java.sql.Date(datechooserDen_panel4.getDate().getTime()));
+					bc.setLoaiTotNghiep((String) cbbLoaitotnghiep.getSelectedItem());
+					bc.setChuyenNganh(txtChuyennganh.getText());
+					bc.setId(hs.getId_BC());
+					// panel5 Ngoai ngu va tin hoc
+					NN_TH nt = new NN_TH();
+					nt.setTrinhDo((String) cbbTrinhdo.getSelectedItem());
+					nt.setLoaiNgonNgu((String) cbbNgoaingu.getSelectedItem());
+					nt.setBangCap((String) cbbBangcap.getSelectedItem());
+					if (chckboxMsWord.isSelected()) {
+						nt.setWord(true);
+					} else {
+						nt.setWord(false);
+					}
+					if (chckbxMsExcel.isSelected()) {
+						nt.setExcel(true);
+					} else {
+						nt.setExcel(false);
+					}
+
+					if (chckbxMsOutlook.isSelected()) {
+						nt.setOutLook(true);
+					} else {
+						nt.setOutLook(false);
+					}
+					if (chckbxMsPowerPoint.isSelected()) {
+						nt.setPowerPoint(true);
+					} else {
+						nt.setPowerPoint(false);
+					}
+					nt.setPhanMemKhac(txtareaPhanmemkhac.getText());
+					nt.setId(hs.getIdNN_TH());
+					// panel6 Ky nang ca nhan
+					KI_NANG kn = new KI_NANG();
+					if (chckbxGiaotiep.isSelected()) {
+						kn.setGiaoTiep(true);
+					} else {
+						kn.setGiaoTiep(false);
+					}
+					if (chckbxGiaiquyetvande.isSelected()) {
+						kn.setGiaiQuyetVD(true);
+					} else {
+						kn.setGiaiQuyetVD(false);
+					}
+					if (chckbxLanhdao.isSelected()) {
+						kn.setLanhDao(true);
+					} else {
+						kn.setLanhDao(false);
+					}
+					if (chckbxLamviecnhom.isSelected()) {
+						kn.setLamViecNhom(true);
+					} else {
+						kn.setLamViecNhom(false);
+					}
+					if (chckbxChienluoc.isSelected()) {
+						kn.setRaChienLuoc(true);
+					} else {
+						kn.setRaChienLuoc(false);
+					}
+					if (chckbxQuanlynhanluc.isSelected()) {
+						kn.setQuanLyNhanLuc(true);
+					} else {
+						kn.setQuanLyNhanLuc(false);
+					}
+					if (chckbxQuanlyduan.isSelected()) {
+						kn.setQuanLyDuAn(true);
+					} else {
+						kn.setQuanLyDuAn(false);
+					}
+					if (chckbxQuanlythoigian.isSelected()) {
+						kn.setQuanLyThoiGian(true);
+					} else {
+						kn.setQuanLyThoiGian(false);
+					}
+					if (chckbxSangtao.isSelected()) {
+						kn.setSangTao(true);
+					} else {
+						kn.setSangTao(false);
+					}
+					kn.setSoThich(txtareaSothich.getText());
+					kn.setKyNangKhac(txtareaKynang.getText());
+					kn.setId(hs.getId_KN());
+					BLL_Timviec.Instance().ExecuteDB(hs, bc, dc, kn, nt, tk);
+//				System.exit(0);
+
+				} while (check == true);
+				frameHS.dispose();
+			}
+		});
+
+		btnLuu_panel5.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				boolean check = false;
+				HO_SO hs;
+				do {
+					if (cbbNgoaingu.getSelectedIndex() == -1 || cbbTrinhdo.getSelectedIndex() == -1
+							|| cbbBangcap.getSelectedIndex() == -1 || txtHoten.getText() == null
+							|| datechooserNS == null || cbbKinhnghiem.getSelectedIndex() == -1
+							|| cbbVitrihientai.getSelectedIndex() == -1 || cbbVitrimongmuon.getSelectedIndex() == -1
+							|| cbbNoilamviec.getSelectedIndex() == -1) {
+						System.out.println("nhap lai");
+						check = true;
+						break;
+					} else {
+						check = false;
+					}
+					if (IDHS == 0) {
+						hs = new HO_SO();
+					} else {
+						hs = BLL_Timviec.Instance().GetHSbyIDHS(IDHS);
+					}
+
+					// panel1 thong tin tai khoan
+					hs.setFullname(txtHoten.getText());
+					TAI_KHOAN tk = new TAI_KHOAN();
+					tk.setSdt(Integer.parseInt(txtSdt.getText()));
+					tk.setId(hs.getId());
+					hs.setNgaySinh(new java.sql.Date(datechooserNS.getDate().getTime()));
+					if (rdbtn_male.isSelected()) {
+						hs.setGioiTinh(true);
+					}
+					if (rdbtn_female.isSelected()) {
+						hs.setGioiTinh(false);
+					}
+					DIA_CHI dc = new DIA_CHI();
+					dc.setTinh((String) cbbThanhpho.getSelectedItem());
+					dc.setDiaChiChiTiet(txtDiachi.getText());
+					dc.setId(hs.getId_DC());
+					// panel2 thong tin chung
+					hs.setKinhNghiem((String) cbbKinhnghiem.getSelectedItem());
+					hs.setViTriHienTai((String) cbbVitrihientai.getSelectedItem());
+					hs.setViTriMongMuon((String) cbbVitrimongmuon.getSelectedItem());
+					hs.setMucLuongMongMuon(Integer.parseInt(txtMucluong.getText()));
+					hs.setNoiLamViec((String) cbbNoilamviec.getSelectedItem());
+					hs.setMucTieuCV(txareaMuctieu.getText());
+					// panel3 kinh nghiem
+					hs.setTenCongTyDangLam(txtDoanhnghiep.getText());
+					hs.setNoiLamViec((String) cbbNoilamviec_panel3.getSelectedItem());
+					hs.setThoiGianBatDauLam(new java.sql.Date(datechooserTu_panel3.getDate().getTime()));
+					hs.setThoiGianKetThucLam(new java.sql.Date(datechooserDen_panel3.getDate().getTime()));
+					if (cbbDonvitien.getSelectedIndex() == 0) {
+						hs.setMucLuong(Integer.parseInt(txtSotien.getText()) * 23061);
+					}
+					hs.setMoTaCV(txtareaMotaCV.getText());
+					// panel4 Trinh do va bang cap
+					BANG_CAP bc = new BANG_CAP();
+					bc.setTrinhDo(txtTrinhdo.getText());
+					bc.setDonViDaoTao(txtDonvidaotao.getText());
+					bc.setThoiGianBatDau(new java.sql.Date(datechooserTu_panel4.getDate().getTime()));
+					bc.setThoiGianKetThuc(new java.sql.Date(datechooserDen_panel4.getDate().getTime()));
+					bc.setLoaiTotNghiep((String) cbbLoaitotnghiep.getSelectedItem());
+					bc.setChuyenNganh(txtChuyennganh.getText());
+					bc.setId(hs.getId_BC());
+					// panel5 Ngoai ngu va tin hoc
+					NN_TH nt = new NN_TH();
+					nt.setTrinhDo((String) cbbTrinhdo.getSelectedItem());
+					nt.setLoaiNgonNgu((String) cbbNgoaingu.getSelectedItem());
+					nt.setBangCap((String) cbbBangcap.getSelectedItem());
+					if (chckboxMsWord.isSelected()) {
+						nt.setWord(true);
+					} else {
+						nt.setWord(false);
+					}
+					if (chckbxMsExcel.isSelected()) {
+						nt.setExcel(true);
+					} else {
+						nt.setExcel(false);
+					}
+
+					if (chckbxMsOutlook.isSelected()) {
+						nt.setOutLook(true);
+					} else {
+						nt.setOutLook(false);
+					}
+					if (chckbxMsPowerPoint.isSelected()) {
+						nt.setPowerPoint(true);
+					} else {
+						nt.setPowerPoint(false);
+					}
+					nt.setPhanMemKhac(txtareaPhanmemkhac.getText());
+					nt.setId(hs.getIdNN_TH());
+					// panel6 Ky nang ca nhan
+					KI_NANG kn = new KI_NANG();
+					if (chckbxGiaotiep.isSelected()) {
+						kn.setGiaoTiep(true);
+					} else {
+						kn.setGiaoTiep(false);
+					}
+					if (chckbxGiaiquyetvande.isSelected()) {
+						kn.setGiaiQuyetVD(true);
+					} else {
+						kn.setGiaiQuyetVD(false);
+					}
+					if (chckbxLanhdao.isSelected()) {
+						kn.setLanhDao(true);
+					} else {
+						kn.setLanhDao(false);
+					}
+					if (chckbxLamviecnhom.isSelected()) {
+						kn.setLamViecNhom(true);
+					} else {
+						kn.setLamViecNhom(false);
+					}
+					if (chckbxChienluoc.isSelected()) {
+						kn.setRaChienLuoc(true);
+					} else {
+						kn.setRaChienLuoc(false);
+					}
+					if (chckbxQuanlynhanluc.isSelected()) {
+						kn.setQuanLyNhanLuc(true);
+					} else {
+						kn.setQuanLyNhanLuc(false);
+					}
+					if (chckbxQuanlyduan.isSelected()) {
+						kn.setQuanLyDuAn(true);
+					} else {
+						kn.setQuanLyDuAn(false);
+					}
+					if (chckbxQuanlythoigian.isSelected()) {
+						kn.setQuanLyThoiGian(true);
+					} else {
+						kn.setQuanLyThoiGian(false);
+					}
+					if (chckbxSangtao.isSelected()) {
+						kn.setSangTao(true);
+					} else {
+						kn.setSangTao(false);
+					}
+					kn.setSoThich(txtareaSothich.getText());
+					kn.setKyNangKhac(txtareaKynang.getText());
+					kn.setId(hs.getId_KN());
+					BLL_Timviec.Instance().ExecuteDB(hs, bc, dc, kn, nt, tk);
+//						System.exit(0);
+
+				} while (check == true);
+				frameHS.dispose();
+			}
+		});
+
+		btnLuu_panel6.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				boolean check = false;
+				HO_SO hs;
+				do {
+					if (cbbNgoaingu.getSelectedIndex() == -1 || cbbTrinhdo.getSelectedIndex() == -1
+							|| cbbBangcap.getSelectedIndex() == -1 || txtHoten.getText() == null
+							|| datechooserNS == null || cbbKinhnghiem.getSelectedIndex() == -1
+							|| cbbVitrihientai.getSelectedIndex() == -1 || cbbVitrimongmuon.getSelectedIndex() == -1
+							|| cbbNoilamviec.getSelectedIndex() == -1) {
+						System.out.println("nhap lai");
+						check = true;
+						break;
+					} else {
+						check = false;
+					}
+					if (IDHS == 0) {
+						hs = new HO_SO();
+					} else {
+						hs = BLL_Timviec.Instance().GetHSbyIDHS(IDHS);
+					}
+
+					// panel1 thong tin tai khoan
+					hs.setFullname(txtHoten.getText());
+					TAI_KHOAN tk = new TAI_KHOAN();
+					tk.setSdt(Integer.parseInt(txtSdt.getText()));
+					tk.setId(hs.getId());
+					hs.setNgaySinh(new java.sql.Date(datechooserNS.getDate().getTime()));
+					if (rdbtn_male.isSelected()) {
+						hs.setGioiTinh(true);
+					}
+					if (rdbtn_female.isSelected()) {
+						hs.setGioiTinh(false);
+					}
+					DIA_CHI dc = new DIA_CHI();
+					dc.setTinh((String) cbbThanhpho.getSelectedItem());
+					dc.setDiaChiChiTiet(txtDiachi.getText());
+					dc.setId(hs.getId_DC());
+					// panel2 thong tin chung
+					hs.setKinhNghiem((String) cbbKinhnghiem.getSelectedItem());
+					hs.setViTriHienTai((String) cbbVitrihientai.getSelectedItem());
+					hs.setViTriMongMuon((String) cbbVitrimongmuon.getSelectedItem());
+					hs.setMucLuongMongMuon(Integer.parseInt(txtMucluong.getText()));
+					hs.setNoiLamViec((String) cbbNoilamviec.getSelectedItem());
+					hs.setMucTieuCV(txareaMuctieu.getText());
+					// panel3 kinh nghiem
+					hs.setTenCongTyDangLam(txtDoanhnghiep.getText());
+					hs.setNoiLamViec((String) cbbNoilamviec_panel3.getSelectedItem());
+					hs.setThoiGianBatDauLam(new java.sql.Date(datechooserTu_panel3.getDate().getTime()));
+					hs.setThoiGianKetThucLam(new java.sql.Date(datechooserDen_panel3.getDate().getTime()));
+					if (cbbDonvitien.getSelectedIndex() == 0) {
+						hs.setMucLuong(Integer.parseInt(txtSotien.getText()) * 23061);
+					}
+					hs.setMoTaCV(txtareaMotaCV.getText());
+					// panel4 Trinh do va bang cap
+					BANG_CAP bc = new BANG_CAP();
+					bc.setTrinhDo(txtTrinhdo.getText());
+					bc.setDonViDaoTao(txtDonvidaotao.getText());
+					bc.setThoiGianBatDau(new java.sql.Date(datechooserTu_panel4.getDate().getTime()));
+					bc.setThoiGianKetThuc(new java.sql.Date(datechooserDen_panel4.getDate().getTime()));
+					bc.setLoaiTotNghiep((String) cbbLoaitotnghiep.getSelectedItem());
+					bc.setChuyenNganh(txtChuyennganh.getText());
+					bc.setId(hs.getId_BC());
+					// panel5 Ngoai ngu va tin hoc
+					NN_TH nt = new NN_TH();
+					nt.setTrinhDo((String) cbbTrinhdo.getSelectedItem());
+					nt.setLoaiNgonNgu((String) cbbNgoaingu.getSelectedItem());
+					nt.setBangCap((String) cbbBangcap.getSelectedItem());
+					if (chckboxMsWord.isSelected()) {
+						nt.setWord(true);
+					} else {
+						nt.setWord(false);
+					}
+					if (chckbxMsExcel.isSelected()) {
+						nt.setExcel(true);
+					} else {
+						nt.setExcel(false);
+					}
+
+					if (chckbxMsOutlook.isSelected()) {
+						nt.setOutLook(true);
+					} else {
+						nt.setOutLook(false);
+					}
+					if (chckbxMsPowerPoint.isSelected()) {
+						nt.setPowerPoint(true);
+					} else {
+						nt.setPowerPoint(false);
+					}
+					nt.setPhanMemKhac(txtareaPhanmemkhac.getText());
+					nt.setId(hs.getIdNN_TH());
+					// panel6 Ky nang ca nhan
+					KI_NANG kn = new KI_NANG();
+					if (chckbxGiaotiep.isSelected()) {
+						kn.setGiaoTiep(true);
+					} else {
+						kn.setGiaoTiep(false);
+					}
+					if (chckbxGiaiquyetvande.isSelected()) {
+						kn.setGiaiQuyetVD(true);
+					} else {
+						kn.setGiaiQuyetVD(false);
+					}
+					if (chckbxLanhdao.isSelected()) {
+						kn.setLanhDao(true);
+					} else {
+						kn.setLanhDao(false);
+					}
+					if (chckbxLamviecnhom.isSelected()) {
+						kn.setLamViecNhom(true);
+					} else {
+						kn.setLamViecNhom(false);
+					}
+					if (chckbxChienluoc.isSelected()) {
+						kn.setRaChienLuoc(true);
+					} else {
+						kn.setRaChienLuoc(false);
+					}
+					if (chckbxQuanlynhanluc.isSelected()) {
+						kn.setQuanLyNhanLuc(true);
+					} else {
+						kn.setQuanLyNhanLuc(false);
+					}
+					if (chckbxQuanlyduan.isSelected()) {
+						kn.setQuanLyDuAn(true);
+					} else {
+						kn.setQuanLyDuAn(false);
+					}
+					if (chckbxQuanlythoigian.isSelected()) {
+						kn.setQuanLyThoiGian(true);
+					} else {
+						kn.setQuanLyThoiGian(false);
+					}
+					if (chckbxSangtao.isSelected()) {
+						kn.setSangTao(true);
+					} else {
+						kn.setSangTao(false);
+					}
+					kn.setSoThich(txtareaSothich.getText());
+					kn.setKyNangKhac(txtareaKynang.getText());
+					kn.setId(hs.getId_KN());
+					BLL_Timviec.Instance().ExecuteDB(hs, bc, dc, kn, nt, tk);
+//				System.exit(0);
 
 				} while (check == true);
 				frameHS.dispose();

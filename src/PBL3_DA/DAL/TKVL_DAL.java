@@ -177,13 +177,14 @@ public class TKVL_DAL {
 		}
 		return ntList;
 	}
-
+		
 	public void addHO_SO_DAL(HO_SO hs, BANG_CAP bc, DIA_CHI dc, KI_NANG kn, NN_TH nt, TAI_KHOAN tk) {
 		connection = null;
 		PreparedStatement statement = null;
 		try {
 			connection = DriverManager.getConnection("jdbc:sqlserver://localhost;DatabaseName=TimKiemViecLam", "sa",
 					"sa");
+			int idtk = DBHelper.Instance().AddandGetIDTK(tk);
 			int idbc = DBHelper.Instance().AddandGetIDBC(bc);
 			int iddc = DBHelper.Instance().AddandGetIDDC(dc);
 			int idnt = DBHelper.Instance().AddandGetIDNN_TH(nt);
@@ -206,17 +207,17 @@ public class TKVL_DAL {
 			statement.setDate(12, hs.getThoiGianKetThucLam());
 			statement.setInt(13, hs.getMucLuong());
 			statement.setString(14, hs.getMoTaCV());
-
-			System.out.println("IDDC = " + iddc);
+//
+//			System.out.println("IDDC = " + iddc);
 			statement.setInt(15, iddc);
-
-			System.out.println("IDBC = " + idbc);
+//
+//			System.out.println("IDBC = " + idbc);
 			statement.setInt(16, idbc);
-
-			System.out.println("IDNT = " + idnt);
+////
+//			System.out.println("IDNT = " + idnt);
 			statement.setInt(17, idnt);
-
-			System.out.println("IDKN = " + idkn);
+//
+//			System.out.println("IDKN = " + idkn);
 			statement.setInt(18, idkn);
 
 			statement.execute();

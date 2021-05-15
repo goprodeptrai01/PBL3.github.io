@@ -380,8 +380,6 @@ public class ListFileFrame extends JFrame {
 		tbDshs.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				
-				System.out.println(tbDshs.getValueAt(tbDshs.getSelectedRow(), tbDshs.getSelectedColumn()));
 				HO_SO hs = BLL_Timviec.Instance().GetHSbyIDHS((int)tbDshs.getModel().getValueAt(tbDshs.getSelectedRow(), tbDshs.getSelectedColumn()) );
 				new FileFrame(hs.getId()).frameHS.setVisible(true);
 			}
